@@ -1,4 +1,5 @@
 #!/bin/bash
+#1. Написать скрипт, если в файле есть слово "error", тогда удалить этот файл.
 echo "Enter path to file"
 read FILE
 
