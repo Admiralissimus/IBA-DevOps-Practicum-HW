@@ -11,4 +11,4 @@ fi
 echo "Enter username"
 read USER
 # Program 'useradd' already write this message if user exists
-useradd $USER && echo "User $USER created"
+useradd "$USER" && echo "User $USER created"

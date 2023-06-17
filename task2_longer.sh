@@ -16,5 +16,5 @@ if awk -F: '{print $1}' /etc/passwd | grep -qw "$USER"; then
     echo "User $USER is already exists"
     exit 1
 else    
-    useradd $USER && echo "User $USER created" || echo "Smth went wrong"
+    useradd "$USER" && echo "User $USER created" || echo "Smth went wrong"
 fi
