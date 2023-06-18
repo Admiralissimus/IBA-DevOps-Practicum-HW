@@ -1,0 +1,12 @@
+[Unit]
+Description=TOP's head output to log Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=/usr/local/bin/top-head.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
