@@ -23,8 +23,8 @@ chmod 644 /etc/systemd/system/top-head.service
 echo -e '\033[32mCopied top-head.service\033[31m'
 
 touch "$LOG_FILE"
-chown nobody "$LOG_FILE"
-chmod u+rw "$LOG_FILE"
+chown root:root "$LOG_FILE"
+chmod 644 "$LOG_FILE"
 echo -e '\033[32mCreated logfile\033[31m'
 
 sudo systemctl daemon-reload

@@ -4,7 +4,6 @@ After=network.target
 
 [Service]
 Type=simple
-User=nobody
 ExecStart=/usr/local/bin/top-head.sh
 Restart=on-failure
 
