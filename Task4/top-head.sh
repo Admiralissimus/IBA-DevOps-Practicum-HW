@@ -7,7 +7,7 @@ MAX_STRINGS=7000
 LOG_FILE="/var/log/top_head.log"
 
 # create temp file
-tmpfile=$(mktemp)
+tmpfile=$(mktemp --tmpdir)
 # create autoremover of temp file
 trap "rm -f $tmpfile" EXIT
 
@@ -23,6 +23,7 @@ do
 
     # Leave only MAX_STRINGS in log file
     tail -n "$MAX_STRINGS" "$LOG_FILE" > "$tmpfile"
+    chmod 0644 "$tmpfile"
     mv "$tmpfile" "$LOG_FILE"    
 
     sleep "$DELAY"
