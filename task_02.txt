@@ -1,0 +1,47 @@
+2. Изучить что такое git cherry-pick.
+Git cherry-pick - это команда, которая позволяет выбрать один или несколько коммитов из одной ветки и применить их к другой ветке. Это может быть полезно для исправления ошибок, отмены изменений или восстановления потерянных коммитов²⁴.
+
+Пример использования git cherry-pick:
+
+```
+a - b - c - d Main
+         \
+          e - f - g Feature
+```
+
+Предположим, мы хотим применить коммит `f` из ветки Feature к ветке Main. Для этого мы сначала переключаемся на ветку Main:
+
+```
+git checkout main
+```
+
+Затем мы выполняем cherry-pick с указанием хэша коммита `f`:
+
+```
+git cherry-pick f
+```
+
+После этого наша история коммитов будет выглядеть так:
+
+```
+a - b - c - d - f' Main
+         \
+          e - f - g Feature
+```
+
+Коммит `f'` является копией коммита `f`, но с другим хэшем и родителем¹.
+
+Вы можете использовать разные опции с git cherry-pick, например:
+
+- --edit: позволяет отредактировать сообщение коммита перед применением cherry-pick.
+- --x: добавляет строку \"(cherry picked from commit …​)\" к оригинальному сообщению коммита, чтобы указать, откуда был взят этот коммит.
+- --m <номер-родителя>: указывает, какой родитель считать главным при cherry-pick мерж-коммита.
+
+Подробнее об этих и других опциях вы можете прочитать в документации по git cherry-pick³.
+
+Источник: беседа с Bing, 25.06.2023
+(1) Git - git-cherry-pick Documentation. https://git-scm.com/docs/git-cherry-pick.
+(2) Git - Cherry Pick - GeeksforGeeks. https://www.geeksforgeeks.org/git-cherry-pick/.
+(3) Git Cherry Pick | Atlassian Git Tutorial. https://www.atlassian.com/git/tutorials/cherry-pick.
+(4) Git Cherry-Picking with VS Code -Part 1 - Geek Webcast. https://geekwebcast.com/git-cherry-picking-with-vs-code-part-1/.
+(5) What does cherry-picking a commit with Git mean?. https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean.
