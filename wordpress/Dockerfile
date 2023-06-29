@@ -1,3 +1,3 @@
-FROM php:8.1-rc-apache
+FROM wordpress
 
 COPY ./src /var/www/html
