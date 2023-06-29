@@ -1,0 +1,67 @@
+https://habr.com/ru/companies/southbridge/articles/329138/
+
+Understand how CMD and ENTRYPOINT interact
+Both CMD and ENTRYPOINT instructions define what command gets executed when running a container. There are few rules that describe their co-operation.
+
+Dockerfile should specify at least one of CMD or ENTRYPOINT commands.
+
+ENTRYPOINT should be defined when using the container as an executable.
+
+CMD should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
+
+CMD will be overridden when running the container with alternative arguments.
+
+The table below shows what command is executed for different ENTRYPOINT / CMD combinations:
+
+                            No ENTRYPOINT	            ENTRYPOINT exec_entry p1_entry	    ENTRYPOINT [“exec_entry”, “p1_entry”]
+No CMD	                    error, not allowed	        /bin/sh -c exec_entry p1_entry	    exec_entry p1_entry
+CMD [“exec_cmd”, “p1_cmd”]	exec_cmd p1_cmd	            /bin/sh -c exec_entry p1_entry	    exec_entry p1_entry exec_cmd p1_cmd
+CMD exec_cmd p1_cmd	        /bin/sh -c exec_cmd p1_cmd	/bin/sh -c exec_entry p1_entry	    exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd
+Note
+
+If CMD is defined from the base image, setting ENTRYPOINT will reset CMD to an empty value. In this scenario, CMD must be defined in the current image to have a value.
+
+Используйте ENTRYPOINT, если вы не хотите, чтобы разработчики изменяли исполняемый файл, который запускается при запуске контейнера. Вы можете представлять, что ваш контейнер – исполняемая оболочка. Хорошей стратегией будет определить стабильную комбинацию параметров и исполняемого файла как ENTRYPOINT. Для нее вы можете (не обязательно) указать аргументы CMD по умолчанию, доступные другим разработчикам для переопределения.
+
+
+$ cat Dockerfile
+FROM alpine  
+ENTRYPOINT ["ping"]  
+CMD ["www.google.com"]  
+
+$ docker build -t test .
+
+Запуск с параметрами по умолчанию:
+
+
+$ docker run test
+PING www.google.com (172.217.7.164): 56 data bytes  
+64 bytes from 172.217.7.164: seq=0 ttl=37 time=0.306 ms
+
+Переопределение CMD собственными параметрами:
+
+
+$ docker run test www.yahoo.com
+PING www.yahoo.com (98.139.183.24): 56 data bytes  
+64 bytes from 98.139.183.24: seq=0 ttl=37 time=0.590 ms  
+
+Используйте только CMD (без определения ENTRYPOINT), если требуется, чтобы разработчики могли легко переопределять исполняемый файл. Если точка входа определена, исполняемый файл все равно можно переопределить, используя флаг --entrypoint. Но для разработчиков будет гораздо удобнее добавлять желаемую команду в конце строки docker run.
+
+
+$ cat Dockerfile
+FROM alpine  
+CMD ["ping", "www.google.com"]  
+
+$ docker build -t test .
+
+Ping – это хорошо, но давайте попробуем запустить контейнер с оболочкой вместо команды ping.
+
+
+$ docker run -it test sh
+/ # ps
+PID   USER     TIME   COMMAND  
+    1 root       0:00 sh
+    7 root       0:00 ps
+/ # 
+
+Я предпочитаю по большей части этот метод, потому что он дает разработчикам свободу легко переопределять исполняемый файл оболочкой или другим исполняемым файлом.
