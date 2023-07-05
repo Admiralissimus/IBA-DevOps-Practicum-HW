@@ -3,7 +3,7 @@ set -e
 
 CONTAINER_NAME="docker-nginx"
 
-docker run --name "$CONTAINER_NAME" -p 8080:80 -v ./html_src:/usr/share/nginx/html:ro -d nginx
+docker run --name "$CONTAINER_NAME" -p 8080:80 -v ./html_src:/usr/share/nginx/html:ro -d nginx:stable-alpine-slim
 sleep 5
 echo
 echo "-----------------------------"
