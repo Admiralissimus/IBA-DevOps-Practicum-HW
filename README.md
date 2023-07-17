@@ -13,6 +13,26 @@ Each lesson's homework will be created in particular branch.
 - Create auto scaling group
 
   ![](/img/AWS_ASG_3.jpg)
+
+- Configure Automatic scaling (2 variants)
+  - **Target tracking scaling**
+    
+    ![](/img/AWS_ASG_4.jpg)
+
+  - **Simple scaling**
+    
+    ![](/img/AWS_ASG_6.jpg)
+
+    Configure CloudWatch
+
+    ![](/img/AWS_ASG_7.jpg)
+
+  
   
 ## 2. Create Linux EC2 t2.micro and attach second volume.2 to it. Create Linux EC2 t2.micro and attach a second volume to it.
 > Создать Linux EC2 t2.micro и прикрепить к нему второй volume.2. Создать Linux EC2 t2.micro и прикрепить к нему второй volume.Создать Linux EC2 t2.micro и прикрепить к нему второй volume.2. Создать Linux EC2 t2.micro и прикрепить к нему второй volume.
+
+It's too simple. 
+
+![](/img/AWS_add_volume_8.jpg)
+
