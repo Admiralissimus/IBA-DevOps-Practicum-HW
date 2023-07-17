@@ -1,10 +1,18 @@
 # IBA-DevOps-Practicum-HW
 Each lesson's homework will be created in particular branch.
 
-1. Настроить автоскейлинг для сервера t2.micro, если на сервере нагрузка на CPU больше 80% то должен подниматься еще один инстанс.
+## 1. Set up autoscaling for the t2.micro server, if the CPU load on the server is more than 80%, then another instance should be raised.1. Set up autoscaling for the t2.micro server, if the CPU load on the server is more than 80%, then another instance should be raised.
+> Настроить автоскейлинг для сервера t2.micro, если на сервере нагрузка на CPU больше 80% то должен подниматься еще один инстанс.Настроить автоскейлинг для сервера t2.micro, если на сервере нагрузка на CPU больше 80% то должен подниматься еще один инстанс.
 
-stress.py - python app which listens to two ports 8080 and 8088.
-8080 - starts stress test
-8088 - spops stress test
+- Create Launch template.
+  
+  ![](/img/AWS_ASG_1.jpg)
+- with simple user-data.
+  
+  ![](/img/AWS_ASG_2.jpg)
+- Create auto scaling group
 
-2. Создать Linux EC2 t2.micro и прикрепить к нему второй volume.
+  ![](/img/AWS_ASG_3.jpg)
+  
+## 2. Create Linux EC2 t2.micro and attach second volume.2 to it. Create Linux EC2 t2.micro and attach a second volume to it.
+> Создать Linux EC2 t2.micro и прикрепить к нему второй volume.2. Создать Linux EC2 t2.micro и прикрепить к нему второй volume.Создать Linux EC2 t2.micro и прикрепить к нему второй volume.2. Создать Linux EC2 t2.micro и прикрепить к нему второй volume.
