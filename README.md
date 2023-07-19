@@ -28,3 +28,13 @@ Each lesson's homework will be created in particular branch.
 
   ![](/img/AWS_VPC_6.jpg)
   ![](/img/AWS_VPC_7.jpg)
+
+- Associate route table with the Public subnet
+
+  ![](/img/AWS_VPC_9.jpg)
+- Enable auto-assign public IPv4 address for the Public subnet
+
+  ![](/img/AWS_VPC_8.jpg)
+
+
+  
