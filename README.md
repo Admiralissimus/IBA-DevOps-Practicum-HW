@@ -55,13 +55,13 @@ Each lesson's homework will be created in particular branch.
   ![](/img/AWS_VPC_14.jpg)
 
 ## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
-`$ssh ubuntu@10.0.1.233`
+### `$ssh ubuntu@10.0.1.233`
 
-`ubuntu@ip-10-0-1-233:~$ echo "$DEVOPS1-KEY" > ~/.ssh/id_rsa`
+### `ubuntu@ip-10-0-1-233:~$ echo "$DEVOPS1-KEY" > ~/.ssh/id_rsa`
 
-`ubuntu@ip-10-0-1-233:~$ chmod 600 ~/.ssh/id_rsa`
+### `ubuntu@ip-10-0-1-233:~$ chmod 600 ~/.ssh/id_rsa`
 
-`ubuntu@ip-10-0-1-233:~$ ping 10.0.2.145`
+### `ubuntu@ip-10-0-1-233:~$ ping 10.0.2.145`
 
 PING 10.0.2.145 (10.0.2.145) 56(84) bytes of data.
 
@@ -87,7 +87,7 @@ PING 10.0.2.145 (10.0.2.145) 56(84) bytes of data.
 
 rtt min/avg/max/mdev = 0.392/0.468/0.578/0.060 ms
 
-`ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
+### `ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
 
 The authenticity of host '10.0.2.145 (10.0.2.145)' can't be established.
 
@@ -97,7 +97,7 @@ This key is not known by any other names
 
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
-`ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
+### `ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
 
 Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-1025-aws x86_64)
 
@@ -108,7 +108,7 @@ Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-1025-aws x86_64)
 
 . . . 
 
-`ubuntu@ip-10-0-2-145:~$ ping google.com`
+### `ubuntu@ip-10-0-2-145:~$ ping google.com`
 
 PING google.com (142.251.163.101) 56(84) bytes of data.
 
@@ -118,7 +118,7 @@ PING google.com (142.251.163.101) 56(84) bytes of data.
 
 4 packets transmitted, 0 received, 100% packet loss, time 3060ms
 
-`ubuntu@ip-10-0-2-145:~$ ping 10.0.1.233`
+### `ubuntu@ip-10-0-2-145:~$ ping 10.0.1.233`
 
 PING 10.0.1.233 (10.0.1.233) 56(84) bytes of data.
 
@@ -138,13 +138,13 @@ PING 10.0.1.233 (10.0.1.233) 56(84) bytes of data.
 
 rtt min/avg/max/mdev = 0.326/0.552/0.953/0.239 ms
 
-`ubuntu@ip-10-0-2-145:~$ exit`
+### `ubuntu@ip-10-0-2-145:~$ exit`
 
 logout
 
 Connection to 10.0.2.145 closed.
 
-`ubuntu@ip-10-0-1-233:~$ ping google.ru`
+### `ubuntu@ip-10-0-1-233:~$ ping google.ru`
 
 PING google.ru (142.251.167.94) 56(84) bytes of data.
 
