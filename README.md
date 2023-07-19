@@ -18,4 +18,13 @@ Each lesson's homework will be created in particular branch.
   ![](/img/AWS_VPC_2.jpg)
   
   ![](/img/AWS_VPC_3.jpg)
-- 
+- Create Internet GW and attach it to the VPC
+
+  ![](/img/AWS_VPC_4.jpg)
+- Create route table for Public subnet
+
+  ![](/img/AWS_VPC_5.jpg)
+- Add route to the Public subnet for Internet connection and public IPs
+
+  ![](/img/AWS_VPC_6.jpg)
+  ![](/img/AWS_VPC_7.jpg)
