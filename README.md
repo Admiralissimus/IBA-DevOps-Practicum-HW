@@ -35,6 +35,9 @@ Each lesson's homework will be created in particular branch.
 - Enable auto-assign public IPv4 address for the Public subnet
 
   ![](/img/AWS_VPC_8.jpg)
+- By default, new subnets use default raute table and for the Private subnet it's OK. But I want tu use my route table.
 
+  ![](/img/AWS_VPC_10.jpg)
+  ![](/img/AWS_VPC_11.jpg)
 
   
