@@ -51,5 +51,7 @@ Each lesson's homework will be created in particular branch.
 
   ![](/img/AWS_VPC_12.jpg)
   ![](/img/AWS_VPC_13.jpg)
+  **Result**
   ![](/img/AWS_VPC_14.jpg)
 
+## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
