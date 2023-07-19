@@ -10,10 +10,12 @@ Each lesson's homework will be created in particular branch.
 > Должна быть возможность по ssh зайти на ec2 которая находится в Private Subnet из ec2 Public Subnet.
 
 
-
-- Create Launch template.
+- Create VPC.
   
-  ![](/img/AWS_ASG_1.jpg)
-- with simple user-data.
+  ![](/img/AWS_VPC_1.jpg)
+- Create two subnets in the VPC.
   
-  ![](/img/AWS_ASG_2.jpg)
+  ![](/img/AWS_VPC_2.jpg)
+  
+  ![](/img/AWS_VPC_3.jpg)
+- 
