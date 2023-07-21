@@ -5,164 +5,96 @@ Each lesson's homework will be created in particular branch.
 > Создать VPC и сеть в ней как показано на рисунке. 
 
 ![](/img/11_AWS_task.jpg)
-## 2.	Create EC2 ubuntu t2.micro in Public subnet and Private subnet.
+## 2.	Create two instances in Public subnet and Private subnet.
 > Создать EC2 ubuntu t2.micro в Public subnet и Private subnet. 
-## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
-> Должна быть возможность по ssh зайти на ec2 которая находится в Private Subnet из ec2 Public Subnet.
+## 3.	It should be possible to ssh into instance which is in the Private Subnet from the instance in Public Subnet.
+> Должна быть возможность по ssh зайти на инстанс которая находится в Private Subnet из инстанса в Public Subnet.
 
 # AWS
 
 ## 1. Create a VPC and a network in it as shown in the figure.
 - Create **VPC**.
   
-  ![](/img/AWS_VPC_1.jpg)
+  ![](/img/Screenshot_1.jpg)
 - Create **two subnets** in the VPC.
   
-  ![](/img/AWS_VPC_2.jpg)
+  ![](/img/Screenshot_2.jpg)
   
-  ![](/img/AWS_VPC_3.jpg)
-- Create **Internet GW** and **attach it to the VPC**.
-
-  ![](/img/AWS_VPC_4.jpg)
-- Create **route table** for Public subnet and Privet subnet.
-
-  ![](/img/AWS_VPC_5.jpg)
-- **Add route** to the **Public subnet** for Internet connection and public IPs.
-
-  ![](/img/AWS_VPC_6.jpg)
-
-  ![](/img/AWS_VPC_7.jpg)
-
-- **Associate route table** with the Public subnet.
-
-  ![](/img/AWS_VPC_9.jpg)
-- **Enable auto-assign public IPv4** address for the Public subnet.
-
-  ![](/img/AWS_VPC_8.jpg)
-- By default, new subnets use default raute table and for the Private subnet it's OK. But I want tu **use my route table  for the Private subnet.**
+  ![](/img/Screenshot_3.jpg)
   
-  ![](/img/AWS_VPC_10.jpg)
-
-  ![](/img/AWS_VPC_11.jpg)
-  
-## 2.	Create EC2 ubuntu t2.micro in Public subnet and Private subnet.
-- Create **Security group** for the VPC
-
-  ![](/img/AWS_VPC_15.jpg)
+## 2.	Create two instances in Public subnet and Private subnet.
 - **Launch two instances** in different subnets.
 
-  ![](/img/AWS_VPC_12.jpg)
+  ![](/img/Screenshot_4.jpg)
 
-  ![](/img/AWS_VPC_13.jpg)
-  **Result**
-
-  ![](/img/AWS_VPC_14.jpg)
+  ![](/img/Screenshot_5.jpg)
 
 ## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
-### `$ssh ubuntu@10.0.1.233`
+### `$ssh admiral@158.160.99.222`
 
-### `ubuntu@ip-10-0-1-233:~$ echo "$DEVOPS1-KEY" > ~/.ssh/id_rsa`
+### `admiral@test-public:~$ echo "$DEVOPS1-KEY" > ~/.ssh/id_rsa`
 
-### `ubuntu@ip-10-0-1-233:~$ chmod 600 ~/.ssh/id_rsa`
+### `admiral@test-public:~$ chmod 600 ~/.ssh/id_rsa`
 
-### `ubuntu@ip-10-0-1-233:~$ ping 10.0.2.145`
+### `admiral@test-public:~$ ping -c 2 10.0.2.26`
 
-PING 10.0.2.145 (10.0.2.145) 56(84) bytes of data.
+PING 10.0.2.26 (10.0.2.26) 56(84) bytes of data.
 
-64 bytes from 10.0.2.145: icmp_seq=1 ttl=64 time=0.392 ms
+64 bytes from 10.0.2.26: icmp_seq=1 ttl=63 time=1.10 ms
 
-64 bytes from 10.0.2.145: icmp_seq=2 ttl=64 time=0.433 ms
+64 bytes from 10.0.2.26: icmp_seq=2 ttl=63 time=0.379 ms
 
-64 bytes from 10.0.2.145: icmp_seq=3 ttl=64 time=0.578 ms
+--- 10.0.2.26 ping statistics ---
 
-64 bytes from 10.0.2.145: icmp_seq=4 ttl=64 time=0.502 ms
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 
-64 bytes from 10.0.2.145: icmp_seq=5 ttl=64 time=0.441 ms
+rtt min/avg/max/mdev = 0.379/0.737/1.096/0.358 ms
 
-64 bytes from 10.0.2.145: icmp_seq=6 ttl=64 time=0.421 ms
+### `admiral@test-public:~$ ping -c 2 google.com`
 
-64 bytes from 10.0.2.145: icmp_seq=7 ttl=64 time=0.514 ms
+PING google.com (108.177.14.138) 56(84) bytes of data.
 
-^C
+64 bytes from lt-in-f138.1e100.net (108.177.14.138): icmp_seq=1 ttl=61 time=21.0 ms
 
---- 10.0.2.145 ping statistics ---
-
-7 packets transmitted, 7 received, 0% packet loss, time 6136ms
-
-rtt min/avg/max/mdev = 0.392/0.468/0.578/0.060 ms
-
-### `ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
-
-The authenticity of host '10.0.2.145 (10.0.2.145)' can't be established.
-
-ED25519 key fingerprint is SHA256:TzFQK0OW8hWPkkrCSBp/fmhgSPrpboyscBjouw0BJOE.
-
-This key is not known by any other names
-
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-
-### `ubuntu@ip-10-0-1-233:~$ ssh ubuntu@10.0.2.145`
-
-Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-1025-aws x86_64)
-
-
- * Documentation:  https://help.ubuntu.com
- 
- * Management:     https://landscape.canonical.com
-
-. . . 
-
-### `ubuntu@ip-10-0-2-145:~$ ping google.com`
-
-PING google.com (142.251.163.101) 56(84) bytes of data.
-
-^C
+64 bytes from lt-in-f138.1e100.net (108.177.14.138): icmp_seq=2 ttl=61 time=19.7 ms
 
 --- google.com ping statistics ---
 
-4 packets transmitted, 0 received, 100% packet loss, time 3060ms
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 
-### `ubuntu@ip-10-0-2-145:~$ ping 10.0.1.233`
+rtt min/avg/max/mdev = 19.727/20.367/21.007/0.640 ms
 
-PING 10.0.1.233 (10.0.1.233) 56(84) bytes of data.
+### `admiral@test-public:~$ ssh admiral@10.0.2.26`
 
-64 bytes from 10.0.1.233: icmp_seq=1 ttl=64 time=0.326 ms
+Linux test-private1 5.10.0-19-amd64 #1 SMP Debian 5.10.149-2 (2022-10-21) x86_64
 
-64 bytes from 10.0.1.233: icmp_seq=2 ttl=64 time=0.434 ms
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
 
-64 bytes from 10.0.1.233: icmp_seq=3 ttl=64 time=0.953 ms
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
 
-64 bytes from 10.0.1.233: icmp_seq=4 ttl=64 time=0.496 ms
+Last login: Fri Jul 21 09:20:47 2023 from 10.0.1.32
 
-^C
+### `admiral@test-private1:~$ ping -c 2 10.0.1.32`
 
---- 10.0.1.233 ping statistics ---
+PING 10.0.1.32 (10.0.1.32) 56(84) bytes of data.
 
-4 packets transmitted, 4 received, 0% packet loss, time 3028ms
+64 bytes from 10.0.1.32: icmp_seq=1 ttl=63 time=0.977 ms
 
-rtt min/avg/max/mdev = 0.326/0.552/0.953/0.239 ms
+64 bytes from 10.0.1.32: icmp_seq=2 ttl=63 time=0.324 ms
 
-### `ubuntu@ip-10-0-2-145:~$ exit`
+--- 10.0.1.32 ping statistics ---
 
-logout
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 
-Connection to 10.0.2.145 closed.
+rtt min/avg/max/mdev = 0.324/0.650/0.977/0.326 ms
 
-### `ubuntu@ip-10-0-1-233:~$ ping google.ru`
+### `admiral@test-private1:~$ ping -c 2 google.com`
 
-PING google.ru (142.251.167.94) 56(84) bytes of data.
+PING google.com (108.177.14.113) 56(84) bytes of data.
 
-64 bytes from ww-in-f94.1e100.net (142.251.167.94): icmp_seq=1 ttl=96 time=7.00 ms
-
-64 bytes from ww-in-f94.1e100.net (142.251.167.94): icmp_seq=2 ttl=96 time=7.03 ms
-
-64 bytes from ww-in-f94.1e100.net (142.251.167.94): icmp_seq=3 ttl=96 time=7.07 ms
-
-^C
-
---- google.ru ping statistics ---
-
-3 packets transmitted, 3 received, 0% packet loss, time 2004ms
-
-rtt min/avg/max/mdev = 6.996/7.031/7.065/0.028 ms
+--- google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1028ms
 
