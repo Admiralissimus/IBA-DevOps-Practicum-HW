@@ -10,7 +10,7 @@ Each lesson's homework will be created in particular branch.
 ## 3.	It should be possible to ssh into instance which is in the Private Subnet from the instance in Public Subnet.
 > Должна быть возможность по ssh зайти на инстанс которая находится в Private Subnet из инстанса в Public Subnet.
 
-# AWS
+# Yandex Cloud
 
 ## 1. Create a VPC and a network in it as shown in the figure.
 - Create **VPC**.
