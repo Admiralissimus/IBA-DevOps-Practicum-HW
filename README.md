@@ -1,100 +1,125 @@
 # IBA-DevOps-Practicum-HW
 Each lesson's homework will be created in particular branch.
 
-## 1.	Create a VPC and a network in it as shown in the figure.
-> Создать VPC и сеть в ней как показано на рисунке. 
+## 1.	Create two different VPCs.
+> Создать два разных VPC.
+## 2.	Must be connection over ssh betwin this two VPCs.
+> Сделать так, чтобы между ними был коннекшен (один инстанс из одного VPC, смог достучаться до второго инстанса, который в другом VPC) по SSH.
 
-![](/img/11_AWS_task.jpg)
-## 2.	Create two instances in Public subnet and Private subnet.
-> Создать EC2 ubuntu t2.micro в Public subnet и Private subnet. 
-## 3.	It should be possible to ssh into instance which is in the Private Subnet from the instance in Public Subnet.
-> Должна быть возможность по ssh зайти на инстанс которая находится в Private Subnet из инстанса в Public Subnet.
+# AWS using **Peering connections**
 
-# Yandex Cloud
-
-## 1. Create a VPC and a network in it as shown in the figure.
-- Create **VPC**.
+## 1.	Create two different VPCs.
+- Create **VPC1** and **VPC2**.
   
   ![](/img/Screenshot_1.jpg)
-- Create **two subnets** in the VPC.
-  
+
   ![](/img/Screenshot_2.jpg)
+- Create **two subnets**. Each subnet is in their own VPC.
   
   ![](/img/Screenshot_3.jpg)
   
-## 2.	Create two instances in Public subnet and Private subnet.
-- **Launch two instances** in different subnets.
-
   ![](/img/Screenshot_4.jpg)
 
+## 2.	Must be connection over ssh betwin this two VPCs.
+- Create **peering connection** and accept request (marked).
+
   ![](/img/Screenshot_5.jpg)
+- In each VPC in default **route table add route** to neighbour VPC.
 
-## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
-### `$ssh admiral@158.160.99.222`
+  ![](/img/Screenshot_6.jpg)
+  
+  ![](/img/Screenshot_7.jpg)
 
-### `admiral@test-public:~$ echo "$DEVOPS1-KEY" > ~/.ssh/id_rsa`
+- Create **security groups**.
 
-### `admiral@test-public:~$ chmod 600 ~/.ssh/id_rsa`
+  ![](/img/Screenshot_8.jpg)
+  
+  ![](/img/Screenshot_9.jpg)
 
-### `admiral@test-public:~$ ping -c 2 10.0.2.26`
+- Create **internet gateway** for one VPC to connect to one instance from internet.
 
-PING 10.0.2.26 (10.0.2.26) 56(84) bytes of data.
+  ![](/img/Screenshot_10.jpg)
 
-64 bytes from 10.0.2.26: icmp_seq=1 ttl=63 time=1.10 ms
+  ![](/img/Screenshot_11.jpg)
+- **Add route** to the route table for this VPC.
 
-64 bytes from 10.0.2.26: icmp_seq=2 ttl=63 time=0.379 ms
+  ![](/img/Screenshot_14.jpg)
 
---- 10.0.2.26 ping statistics ---
+- Create **two instances** in different VPCs.
 
-2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+  ![](/img/Screenshot_10.jpg)
 
-rtt min/avg/max/mdev = 0.379/0.737/1.096/0.358 ms
+  ![](/img/Screenshot_11.jpg)
 
-### `admiral@test-public:~$ ping -c 2 google.com`
+## Check connection
+### `$ssh ubuntu@3.216.31.22`
 
-PING google.com (108.177.14.138) 56(84) bytes of data.
+### `ubuntu@ip-10-11-11-100:~$ vi .ssh/id_rsa`
 
-64 bytes from lt-in-f138.1e100.net (108.177.14.138): icmp_seq=1 ttl=61 time=21.0 ms
+### `ubuntu@ip-10-11-11-100:~$ chmod 600 .ssh/id_rsa`
 
-64 bytes from lt-in-f138.1e100.net (108.177.14.138): icmp_seq=2 ttl=61 time=19.7 ms
+### `ubuntu@ip-10-11-11-100:~$ ping -c 2 google.com`
+
+PING google.com (172.253.62.101) 56(84) bytes of data.
+
+64 bytes from bc-in-f101.1e100.net (172.253.62.101): icmp_seq=1 ttl=52 time=16.0 ms
+
+64 bytes from bc-in-f101.1e100.net (172.253.62.101): icmp_seq=2 ttl=52 time=16.0 ms
 
 --- google.com ping statistics ---
 
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 
-rtt min/avg/max/mdev = 19.727/20.367/21.007/0.640 ms
+rtt min/avg/max/mdev = 16.019/16.022/16.025/0.003 ms
 
-### `admiral@test-public:~$ ssh admiral@10.0.2.26`
+### `ubuntu@ip-10-11-11-100:~$ ping -c 2 10.22.22.174`
 
-Linux test-private1 5.10.0-19-amd64 #1 SMP Debian 5.10.149-2 (2022-10-21) x86_64
+PING 10.22.22.174 (10.22.22.174) 56(84) bytes of data.
 
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
+64 bytes from 10.22.22.174: icmp_seq=1 ttl=64 time=1.05 ms
 
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
+64 bytes from 10.22.22.174: icmp_seq=2 ttl=64 time=0.684 ms
 
-Last login: Fri Jul 21 09:20:47 2023 from 10.0.1.32
-
-### `admiral@test-private1:~$ ping -c 2 10.0.1.32`
-
-PING 10.0.1.32 (10.0.1.32) 56(84) bytes of data.
-
-64 bytes from 10.0.1.32: icmp_seq=1 ttl=63 time=0.977 ms
-
-64 bytes from 10.0.1.32: icmp_seq=2 ttl=63 time=0.324 ms
-
---- 10.0.1.32 ping statistics ---
+--- 10.22.22.174 ping statistics ---
 
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 
-rtt min/avg/max/mdev = 0.324/0.650/0.977/0.326 ms
+rtt min/avg/max/mdev = 0.684/0.866/1.048/0.182 ms
 
-### `admiral@test-private1:~$ ping -c 2 google.com`
+### `ubuntu@ip-10-11-11-100:~$ ssh ubuntu@10.22.22.174`
 
-PING google.com (108.177.14.113) 56(84) bytes of data.
+The authenticity of host '10.22.22.174 (10.22.22.174)' can't be established.
+
+ED25519 key fingerprint is SHA256:FnKBgv1cZlIYIC3ybHmbke9URiR+bA7tS++DzylBzlE.
+
+This key is not known by any other names
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+Warning: Permanently added '10.22.22.174' (ED25519) to the list of known hosts.
+
+*Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-1025-aws x86_64)*
+
+. . .
+
+### `ubuntu@ip-10-22-22-174:~$ ping -c 2 google.com`
+
+PING google.com (172.253.62.102) 56(84) bytes of data.
 
 --- google.com ping statistics ---
-2 packets transmitted, 0 received, 100% packet loss, time 1028ms
 
+2 packets transmitted, 0 received, 100% packet loss, time 1003ms
+
+### `ubuntu@ip-10-22-22-174:~$ ping -c 2 10.11.11.100`
+
+PING 10.11.11.100 (10.11.11.100) 56(84) bytes of data.
+
+64 bytes from 10.11.11.100: icmp_seq=1 ttl=64 time=0.453 ms
+
+64 bytes from 10.11.11.100: icmp_seq=2 ttl=64 time=0.939 ms
+
+--- 10.11.11.100 ping statistics ---
+
+2 packets transmitted, 2 received, 0% packet loss, time 1008ms
+
+rtt min/avg/max/mdev = 0.453/0.696/0.939/0.243 ms
