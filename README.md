@@ -47,9 +47,9 @@ Each lesson's homework will be created in particular branch.
 
 - Create **two instances** in different VPCs.
 
-  ![](/img/Screenshot_10.jpg)
+  ![](/img/Screenshot_12.jpg)
 
-  ![](/img/Screenshot_11.jpg)
+  ![](/img/Screenshot_13.jpg)
 
 ## Check connection
 ### `$ssh ubuntu@3.216.31.22`
