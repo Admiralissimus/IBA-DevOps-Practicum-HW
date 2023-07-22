@@ -52,7 +52,7 @@ Each lesson's homework will be created in particular branch.
   ![](/img/Screenshot_13.jpg)
 
 ## Check connection
-### `$ssh ubuntu@3.216.31.22`
+### `$ssh ubuntu@44.203.230.28`
 
 ### `ubuntu@ip-10-11-11-100:~$ vi .ssh/id_rsa`
 
