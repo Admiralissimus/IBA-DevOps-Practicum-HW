@@ -24,7 +24,7 @@ Each lesson's homework will be created in particular branch.
 - Create **peering connection** and accept request (marked).
 
   ![](/img/Screenshot_5.jpg)
-- In each VPC in default **route table add route** to neighbour VPC over peering.
+- In each VPC in default **route table add route** to neighbour VPC through the peering.
 
   ![](/img/Screenshot_6.jpg)
   
