@@ -89,7 +89,7 @@ Each lesson's homework will be created in particular branch.
 `admiral@router:~$ sudo netfilter-persistent save`
 
 - Check file **/etc/sysctl.conf**.
-
+    
     net.ipv4.ip_forward=1
-
+    
 
