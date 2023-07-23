@@ -46,16 +46,16 @@ Each lesson's homework will be created in particular branch.
 
 - From this instance connect to router
 
-## `admiral@dev-vm:~$ vim .ssh/id_rsa`
+`admiral@dev-vm:~$ vim .ssh/id_rsa`
 > Add here secret key
 
-## `admiral@dev-vm:~$ chmod 600 .ssh/id_rsa`
+`admiral@dev-vm:~$ chmod 600 .ssh/id_rsa`
 
-## `admiral@dev-vm:~$ ssh admiral@10.1.1.3`
+`admiral@dev-vm:~$ ssh admiral@10.1.1.3`
 
 - Activate the second network interface.
 
-## `sudo vim /etc/netplan/02-netcfg.yaml` 
+`sudo vim /etc/netplan/02-netcfg.yaml` 
 
     network:
       version: 2
