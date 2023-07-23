@@ -8,6 +8,10 @@ Each lesson's homework will be created in particular branch.
 
 # YC using **NAT-instance**
 
+## We'll create next shema:
+
+![](/img/Shema.jpg)
+
 ## 0. Create folders for dev and prod environment. And net-folder for **peering-instance**.
 
 ![](/img/Screenshot_1.jpg)
