@@ -64,6 +64,7 @@ Each lesson's homework will be created in particular branch.
         eth1:
           dhcp4: yes
 `admiral@router:~$ sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/51-cloud-init.yaml`
+
 `admiral@router:~$ sudo vim /etc/netplan/51-cloud-init.yaml`
 > Modify file for eth1
 
@@ -79,6 +80,16 @@ Each lesson's homework will be created in particular branch.
 
 `admiral@router:~$ sudo netplan apply`
 
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+- Apply **masquarade** for eth0 and eth1.
+
+`admiral@router:~$ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
+
+`admiral@router:~$ sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE`
+
+`admiral@router:~$ sudo netfilter-persistent save`
+
+- Check file **/etc/sysctl.conf**.
+
+    net.ipv4.ip_forward=1
+
 
