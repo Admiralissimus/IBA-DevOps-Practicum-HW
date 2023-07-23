@@ -8,6 +8,25 @@ Each lesson's homework will be created in particular branch.
 
 # YC using **NAT-instance**
 
+## 0. Create folders for dev and prod environment. And net-folder for **peering-instance**.
+
+![](/img/Screenshot_1.jpg)
+
+## 1.	Create two different VPCs.
+
+- Create VPC **dev** with subnet **dev-subnet** in folder **dev**.
+
+![](/img/Screenshot_2.jpg)
+
+- Create VPC **prod** with subnet **prod-subnet** in folder **prod**.
+
+![](/img/Screenshot_3.jpg)
+
+- Create instance **router** with two network interfaces in each subnet. No need external ip.
+> By default you can't create more than one network interface. But if you choose image "NAT-instance" - you can do it.
+
+![](/img/Screenshot_4.jpg)
+
 1. sudo vim /etc/netplan/02-netcfg.yaml ->
 network:
   version: 2
