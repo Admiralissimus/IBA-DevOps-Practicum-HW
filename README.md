@@ -10,7 +10,7 @@ Each lesson's homework will be created in particular branch.
 
 ## We'll create next shema:
 
-![](/img/Shema.jpg)
+![](/img/shema.jpg)
 
 ## 0. Create folders for dev and prod environment. And net-folder for **peering-instance**.
 
