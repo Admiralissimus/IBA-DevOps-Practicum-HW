@@ -6,7 +6,32 @@ Each lesson's homework will be created in particular branch.
 ## 2.	Must be connection over ssh betwin this two VPCs.
 > Сделать так, чтобы между ними был коннекшен (один инстанс из одного VPC, смог достучаться до второго инстанса, который в другом VPC) по SSH.
 
-# AWS using **Peering connections**
+# YC using **NAT-instance**
+
+1. sudo vim /etc/netplan/02-netcfg.yaml ->
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth1:
+      dhcp4: yes
+
+2. sudo netplan apply
+
+sudo vi /etc/netplan/51-cloud-init-eht1.yaml
+
+network:
+    ethernets:
+        eth1:
+            dhcp4: true
+            dhcp6: false
+            match:
+                macaddress: d0:1d:b2:0c:08:c3
+            set-name: eth1
+    version: 2
+
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 
 ## 1.	Create two different VPCs.
 - Create **VPC1** and **VPC2**.
