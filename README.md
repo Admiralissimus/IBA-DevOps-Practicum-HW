@@ -22,18 +22,47 @@ Each lesson's homework will be created in particular branch.
 
 ![](/img/Screenshot_3.jpg)
 
-- Create instance **router** with two network interfaces in each subnet. No need external ip.
+- Create instance **router** with two network interfaces in each subnet with fixed internal IPs. No need external ip.
 > By default you can't create more than one network interface. But if you choose image "NAT-instance" - you can do it.
 
 ![](/img/Screenshot_4.jpg)
 
-1. sudo vim /etc/netplan/02-netcfg.yaml ->
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    eth1:
-      dhcp4: yes
+- Create **route tables** for each subnet.
+
+![](/img/Screenshot_5.jpg)
+
+![](/img/Screenshot_6.jpg)
+
+
+## 2.	Must be connection over ssh betwin this two VPCs.
+
+- Run instances in each subnet.
+
+![](/img/Screenshot_7.jpg)
+
+![](/img/Screenshot_8.jpg)
+
+- Connect to any instance via ssh.
+
+- From this instance connect to router
+
+## `admiral@dev-vm:~$ vim .ssh/id_rsa`
+> Add here secret key
+
+## `admiral@dev-vm:~$ chmod 600 .ssh/id_rsa`
+
+## `admiral@dev-vm:~$ ssh admiral@10.1.1.3`
+
+- Activate the second network interface.
+
+## `sudo vim /etc/netplan/02-netcfg.yaml` 
+
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        eth1:
+          dhcp4: yes
 
 2. sudo netplan apply
 
