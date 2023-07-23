@@ -23,9 +23,11 @@ Each lesson's homework will be created in particular branch.
 ![](/img/Screenshot_3.jpg)
 
 - Create instance **router** with two network interfaces in each subnet with fixed internal IPs. No need external ip.
-> By default you can't create more than one network interface. But if you choose image "NAT-instance" - you can do it.
+> By default you can't create more than one network interface. But if you choose image "NAT-instance" from Marketplace - you can do it.
 
 ![](/img/Screenshot_4.jpg)
+
+![](/img/Screenshot_9.jpg)
 
 - Create **route tables** for each subnet.
 
