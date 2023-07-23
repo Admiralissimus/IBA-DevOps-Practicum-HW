@@ -50,7 +50,7 @@ Each lesson's homework will be created in particular branch.
 
 - Connect to any instance via ssh.
 
-- From this instance connect to router
+- From this instance connect to router. If you can't, try the second instance.
 
 `admiral@dev-vm:~$ vim .ssh/id_rsa`
 > Add here secret key
