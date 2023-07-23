@@ -92,4 +92,42 @@ Each lesson's homework will be created in particular branch.
     
     net.ipv4.ip_forward=1
     
+## Check connection
+## `admiral@prod-vm:~$ ping 10.1.1.100`
+
+PING 10.1.1.100 (10.1.1.100) 56(84) bytes of data.
+
+64 bytes from 10.1.1.100: icmp_seq=1 ttl=61 time=1.27 ms
+
+64 bytes from 10.1.1.100: icmp_seq=2 ttl=61 time=0.575 ms
+
+64 bytes from 10.1.1.100: icmp_seq=3 ttl=61 time=0.601 ms
+
+^C
+
+--- 10.1.1.100 ping statistics ---
+
+3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+
+rtt min/avg/max/mdev = 0.575/0.816/1.274/0.323 ms
+
+## `admiral@dev-vm:~$ ping 10.2.2.100`
+
+PING 10.2.2.100 (10.2.2.100) 56(84) bytes of data.
+
+64 bytes from 10.2.2.100: icmp_seq=1 ttl=61 time=1.42 ms
+
+64 bytes from 10.2.2.100: icmp_seq=2 ttl=61 time=0.574 ms
+
+64 bytes from 10.2.2.100: icmp_seq=3 ttl=61 time=0.613 ms
+
+64 bytes from 10.2.2.100: icmp_seq=4 ttl=61 time=0.562 ms
+
+^C
+
+--- 10.2.2.100 ping statistics ---
+
+4 packets transmitted, 4 received, 0% packet loss, time 3032ms
+
+rtt min/avg/max/mdev = 0.562/0.792/1.420/0.362 ms
 
