@@ -86,7 +86,7 @@ Each lesson's homework will be created in particular branch.
 
 `admiral@router:~$ sudo netplan apply`
 
-- Apply **masquarade** for eth0 and eth1.
+- ***If you want***, you can apply *masquarade* for eth0 and eth1.
 
 `admiral@router:~$ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
 
