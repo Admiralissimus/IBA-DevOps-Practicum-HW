@@ -86,7 +86,11 @@ Each lesson's homework will be created in particular branch.
 
 `admiral@router:~$ sudo netplan apply`
 
-- ***If you want***, you can apply *masquarade* for eth0 and eth1.
+- Delete NAT rule which was set by the developers of the NAT-instance image.
+
+`admiral@router:~$ sudo iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE`
+
+- But, ***if you want***, you can apply *masquarade* for eth0 and eth1.
 
 `admiral@router:~$ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
 
