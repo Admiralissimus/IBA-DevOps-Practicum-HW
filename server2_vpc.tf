@@ -12,7 +12,7 @@ resource "aws_vpc" "ushakou-vpc" {
 resource "aws_subnet" "ushakou-subnet" {
   vpc_id            = aws_vpc.ushakou-vpc.id
   cidr_block        = "10.99.77.0/24"
-  availability_zone = var.az
+  availability_zone = data.aws_availability_zones.vpc-azs.names[1]
 
   tags = {
     Name  = "Ushakou-subnet"

@@ -19,6 +19,8 @@ data "aws_ami" "ubuntu2204" {
   owners = ["099720109477"] # Canonical
 }
 
+# Get information about AZs
+data "aws_availability_zones" "vpc-azs" {}
 
 # Find SG with tag owner 
 data "aws_security_groups" "my-sg" {

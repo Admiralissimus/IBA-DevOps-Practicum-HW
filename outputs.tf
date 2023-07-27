@@ -13,3 +13,7 @@ output "server2_id" {
 output "my_sg_ids" {
   value = data.aws_security_groups.my-sg.ids
 }
+
+output "available_azs" {
+  value = data.aws_availability_zones.vpc-azs.names
+}
