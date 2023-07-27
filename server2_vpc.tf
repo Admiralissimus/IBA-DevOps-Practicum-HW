@@ -23,6 +23,8 @@ resource "aws_subnet" "ushakou-subnet" {
 resource "aws_security_group" "sg_ushakou_vpc" {
   name_prefix = "Ushakou_sg"
 
+  vpc_id = aws_vpc.ushakou-vpc.id
+
   dynamic "ingress" {
     for_each = ["80", "22", "443", "8080"]
     content {
