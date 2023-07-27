@@ -51,6 +51,7 @@ resource "aws_instance" "server2" {
   instance_type = var.instance_type
   key_name      = "devops1"
 
+  subnet_id              = aws_subnet.ushakou-subnet.id
   vpc_security_group_ids = [aws_security_group.sg_ushakou_vpc.id]
 
   tags = {
