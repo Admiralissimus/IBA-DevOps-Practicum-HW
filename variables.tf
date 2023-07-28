@@ -28,3 +28,15 @@ variable "server1_subnet_id" {
   default     = "e2l73ma11v7l0jjq309c"
 }
 
+variable "cidr2" {
+  description = "CIDR for subnet 2"
+  type        = string
+  default     = "10.99.99.0/24"
+}
+
+variable "az2" {
+  description = "AZ for subnet 2"
+  type        = string
+  default     = "ru-central1-a"
+}
+
