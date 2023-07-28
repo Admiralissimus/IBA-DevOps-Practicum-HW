@@ -62,4 +62,7 @@ resource "yandex_vpc_security_group" "sg_for_server1" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 443
   }
+  labels = {
+    owner = var.owner
+  }
 }
