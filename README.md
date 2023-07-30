@@ -2,11 +2,36 @@
 Each lesson's homework will be created in particular branch.
 
 # Do with terraform.
-## 1.	Create EC2 and Security Group (SG). The EC2 must contains the SG.
-> 1.	Создать EC2 и security group, при этом новый сервер должен содержать созданную security group.
-## 2.	Create a new VPC and create an EC2 server in it. In the output output the id of the created server.
-> 2.	Создать новую VPC и в ней создать EC2 сервер. В аутпут вынести id созданного сервера.
-## 3.   Using data find any created SG.
-> 3.    Через data найти любую созданную SG.
-## 4.   Don't forget to remove all at the end. And you should use t2.micro.
-> 4.	Не забыть всё удалить и использовать t2.micro.
+## 1.	Using terraform, deploy two VPCs in two environments using workspaces.
+> 1.	С помощью terraform развернуть два VPC в двух environment используя workspaces.
+## 2.	Create an RDS and attach a password using random_password, the password must be stored in the parameter store.
+> 2.	Создать RDS и прикрепить пароль с помощью random_password, пароль должен хранится в parameter store.
+
+## 1.	Using terraform, deploy two VPCs in two environments using workspaces.
+
+> It is not good idea to use workspaces for making different environments. Usually people use it for making some tests. Imagine, that you want to test new code of your app in the prod environment. For this variant you use workspace **test**. If you want to test your environment uder pressure you use workspace **pressure**.
+
+`terraform init`
+
+To create **prod** environment (our working environment):
+`terraform apply`
+
+To create **test** environment:
+`terraform workspace new test`
+
+`terraform apply -var-file test.tfvars`
+
+To create **pressure** environment:
+`terraform workspace new pressure`
+
+`terraform apply -var-file pressure.tfvars`
+
+Two additionals environments for tests will be created.
+
+![](/1/img/Screenshot_1.jpg)
+
+![](/1/img/Screenshot_4.jpg)
+
+![](/1/img/Screenshot_3.jpg)
+
+![](/1/img/Screenshot_2.jpg)
