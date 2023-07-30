@@ -27,6 +27,17 @@ common_tags = {
 }
 ```
 
+***pressure.tfvar***
+
+```
+az = 2
+instance_type = "t2.nano"
+common_tags = {
+  Owner       = "Ushakou"
+  Environment = "pressure"
+}
+```
+
 `terraform init`
 
 To create **prod** environment (our working environment):
