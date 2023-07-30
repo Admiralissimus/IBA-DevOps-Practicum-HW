@@ -19,9 +19,7 @@ Each environment will be created with different AZ, instance types, tags and dif
 ***test.tfvar***
 
     az = 1
-    
     instance_type = "t2.micro"
-    
     common_tags = { Owner = "Ushakou" Environment = "test" }
 
 
