@@ -14,14 +14,17 @@ Each lesson's homework will be created in particular branch.
 `terraform init`
 
 To create **prod** environment (our working environment):
+
 `terraform apply`
 
 To create **test** environment:
+
 `terraform workspace new test`
 
 `terraform apply -var-file test.tfvars`
 
 To create **pressure** environment:
+
 `terraform workspace new pressure`
 
 `terraform apply -var-file pressure.tfvars`
