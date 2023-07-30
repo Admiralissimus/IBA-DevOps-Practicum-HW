@@ -7,7 +7,8 @@ Each lesson's homework will be created in particular branch.
 ## 2.	Create an RDS and attach a password using random_password, the password must be stored in the parameter store.
 > 2.	Создать RDS и прикрепить пароль с помощью random_password, пароль должен хранится в parameter store.
 
-## 1.	Using terraform, deploy two VPCs in two environments using workspaces.
+
+# 1.	Using terraform, deploy two VPCs in two environments using workspaces.
 
 > It is not good idea to use workspaces for making different environments. Usually people use it for making some tests. Imagine, that you want to test new code of your app in the prod environment. For this variant you use workspace **test**. If you want to test your environment uder pressure you use workspace **pressure**.
 
