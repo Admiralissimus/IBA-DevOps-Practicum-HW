@@ -40,7 +40,7 @@ Two additionals environments for tests will be created.
 
 ![](/1/img/Screenshot_2.jpg)
 
-Don't forget remove created environmnts for test.
+Don't forget to remove created environmnts for test.
 
 `terraform workspace select pressure`
 
@@ -53,3 +53,6 @@ Don't forget remove created environmnts for test.
 `terraform workspace select default`
 
 ~~`terraform destroy`~~
+
+
+
