@@ -14,7 +14,18 @@ Each lesson's homework will be created in particular branch.
 
 > It is not good idea to use workspaces for making different environments. Usually people use it for making some tests. Imagine, that you want to test new code of your app in the prod environment. For this variant you use workspace **test**. If you want to test your environment uder pressure you use workspace **pressure**.
 
-## Each environment will be created with **different AZ, instance types, tags and different prefixes in names**.
+Each environment will be created with **different AZ, instance types, tags and different prefixes in names**.
+
+***test.tfvar***
+  az = 1
+  
+  instance_type = "t2.micro"
+  
+  common_tags = {
+    Owner       = "Ushakou"
+    Environment = "test"
+  }
+
 
 `terraform init`
 
