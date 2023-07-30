@@ -17,6 +17,7 @@ Each lesson's homework will be created in particular branch.
 Each environment will be created with **different AZ, instance types, tags and different prefixes in names**.
 
 ***test.tfvar***
+
   az = 1
   
   instance_type = "t2.micro"
