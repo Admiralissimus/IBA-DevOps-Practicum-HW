@@ -22,6 +22,11 @@ Each environment will be created with different AZ, instance types, tags and dif
     instance_type = "t2.micro"
     common_tags = { Owner = "Ushakou" Environment = "test" }
 
+```
+az = 1
+instance_type = "t2.micro"
+common_tags = { Owner = "Ushakou" Environment = "test" }
+```
 
 `terraform init`
 
