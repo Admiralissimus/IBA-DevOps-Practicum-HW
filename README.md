@@ -185,3 +185,12 @@ resource "yandex_mdb_postgresql_database" "db1" {
   depends_on = [yandex_mdb_postgresql_user.user1]
 }
 ```
+![](/2/img/Screenshot_1.jpg)
+
+![](/2/img/Screenshot_2.jpg)
+
+![](/2/img/Screenshot_3.jpg)
+
+![](/2/img/Screenshot_4.jpg)
+
+![](/2/img/Screenshot_5.jpg)
