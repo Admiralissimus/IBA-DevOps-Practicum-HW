@@ -31,7 +31,7 @@ resource "aws_ssm_parameter" "rds_password" {
 }
 ```
 
-- Get data from SSM
+- Get data from SSM.
 
 ```
 // Get Password from SSM Parameter Store
@@ -40,7 +40,7 @@ data "aws_ssm_parameter" "my_rds_password" {
 }
 ```
 
-- Now we can use this credentials in different services, for example in DBs.
+- Now we can use this credentials in different services, for example in DBs. **data.aws_ssm_parameter.my_rds_password.value**
 
 ```
 resource "aws_db_instance" "mysql" {
