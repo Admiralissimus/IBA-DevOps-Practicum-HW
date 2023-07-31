@@ -80,5 +80,26 @@ Don't forget to remove created environmnts for test.
 
 ~~`terraform destroy`~~
 
+## 2.	Create an RDS and attach a password using random_password, the password must be stored in the parameter store.
+
+- Create random password.
+
+```
+resource "random_string" "rds_password" {
+  length           = 12
+  special          = true
+  override_special = "!#$&"
+
+  min_lower   = 1
+  min_upper   = 1
+  min_numeric = 1
+  min_special = 1
+
+  keepers = {
+    kepeer = var.change_pass
+  }
+}
+```
+> Parameter **keepers** is for changing the password. Just change var.change_pass and new password will be generated.
 
 
