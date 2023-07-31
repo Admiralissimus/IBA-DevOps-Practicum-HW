@@ -102,4 +102,24 @@ resource "random_string" "rds_password" {
 ```
 > Parameter **keepers** is for changing the password. Just change var.change_pass and new password will be generated.
 
+- Store Password in SSM Parameter Store using generated password by random_string
 
+```
+resource "aws_ssm_parameter" "rds_password" {
+  name        = var.dev_db_ssm
+  description = "Master Password for RDS"
+  type        = "SecureString"
+  value       = ***random_string.rds_password.result***
+}
+```
+
+- Get data from SSM
+
+```
+// Get Password from SSM Parameter Store
+data "aws_ssm_parameter" "my_rds_password" {
+  name = aws_ssm_parameter.rds_password.name
+}
+```
+
+- Now we can use this credentials in different services, for example in DBs.
