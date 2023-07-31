@@ -12,30 +12,46 @@ Each lesson's homework will be created in particular branch.
 
 ## The code is in folder **"1"**
 
-> It is not good idea to use workspaces for making different environments. Usually people use it for making some tests. Imagine, that you want to test new code of your app in the prod environment. For this variant you use workspace **test**. If you want to test your environment uder pressure you use workspace **pressure**.
+> It is not good idea to use workspaces for making different environments. Usually people use it for making some tests. Imagine, that you want to test new OS in the prod environment. For this variant you use workspace **test**. If you want to test your environment uder pressure you use workspace **pressure**.
 
 Each environment will be created with different AZ, instance types, tags and different prefixes in names.
 
 ***test.tfvar***
 
 ```
-az = 1
-instance_type = "t2.micro"
+az = "ru-central1-b"
+
 common_tags = {
-    Owner = "Ushakou"
-    Environment = "test"
+  owner       = "ushakou"
+  environment = "test"
 }
+
+vm_type = {
+  cores         = 2
+  memory        = 1
+  core_fraction = 50
+}
+
+os_family_id = "ubuntu-2204-lts"
+
 ```
 
 ***pressure.tfvar***
 
 ```
-az = 2
-instance_type = "t2.nano"
+az = "ru-central1-c"
+
 common_tags = {
-  Owner       = "Ushakou"
-  Environment = "pressure"
+  owner       = "ushakou"
+  environment = "pressure"
 }
+
+vm_type = {
+  cores         = 2
+  memory        = 1
+  core_fraction = 5
+}
+
 ```
 
 `terraform init`
@@ -60,11 +76,9 @@ Two additionals environments for tests will be created.
 
 ![](/1/img/Screenshot_1.jpg)
 
-![](/1/img/Screenshot_4.jpg)
+![](/1/img/Screenshot_2.jpg)
 
 ![](/1/img/Screenshot_3.jpg)
-
-![](/1/img/Screenshot_2.jpg)
 
 Don't forget to remove created environmnts for test.
 
