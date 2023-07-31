@@ -1,8 +1,14 @@
-az = 1
-
-instance_type = "t2.micro"
+az = "ru-central1-b"
 
 common_tags = {
-  Owner       = "Ushakou"
-  Environment = "test"
+  owner       = "ushakou"
+  environment = "test"
 }
+
+vm_type = {
+  cores         = 2
+  memory        = 1
+  core_fraction = 50
+}
+
+os_family_id = "ubuntu-2204-lts"

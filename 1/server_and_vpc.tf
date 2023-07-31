@@ -1,67 +1,56 @@
-# Create VPC
-resource "aws_vpc" "ushakou-vpc" {
-  cidr_block = "10.99.0.0/16"
+resource "yandex_vpc_network" "vpc" {
+  name = "${var.common_tags["environment"]}-vpc"
 
-  tags = merge(var.common_tags, {
-    Name = "${var.common_tags["Environment"]}-vpc"
+  labels = merge(var.common_tags, {
+    name = "${var.common_tags["environment"]}-vpc"
     }
   )
 }
 
-# Create subnet in the VPC
-resource "aws_subnet" "ushakou-subnet" {
-  vpc_id            = aws_vpc.ushakou-vpc.id
-  cidr_block        = "10.99.77.0/24"
-  availability_zone = data.aws_availability_zones.vpc-azs.names[var.az]
+resource "yandex_vpc_subnet" "subnet" {
+  name           = "${var.common_tags["environment"]}-subnet"
+  v4_cidr_blocks = [var.cidr]
+  zone           = var.az
+  network_id     = yandex_vpc_network.vpc.id
 
-  tags = merge(var.common_tags, {
-    Name = "${var.common_tags["Environment"]}-subnet"
+  labels = merge(var.common_tags, {
+    name = "${var.common_tags["environment"]}-subnet"
     }
   )
 }
 
-resource "aws_security_group" "sg_ushakou_vpc" {
-  name_prefix = "${var.common_tags["Environment"]}-sg"
+resource "yandex_compute_instance" "server" {
+  name        = "${var.common_tags["environment"]}-server"
+  platform_id = var.platform_id
+  zone        = yandex_vpc_subnet.subnet.zone
 
-  vpc_id = aws_vpc.ushakou-vpc.id
+  resources {
+    cores         = var.vm_type.cores
+    memory        = var.vm_type.memory
+    core_fraction = var.vm_type.core_fraction
+  }
 
-  dynamic "ingress" {
-    for_each = ["80", "22", "443", "8080"]
-    content {
-      from_port   = ingress.value
-      to_port     = ingress.value
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+  scheduling_policy {
+    preemptible = true
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.my_image.id
+      type     = "network-hdd"
+      size     = data.yandex_compute_image.my_image.min_disk_size
     }
   }
 
-  #Allow PING
-  ingress {
-    from_port   = 8 # type of icmp
-    to_port     = 0 # code of icmp
-    protocol    = "icmp"
-    cidr_blocks = ["0.0.0.0/0"]
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet.id
+    nat       = true
   }
 
-  tags = merge(var.common_tags, {
-    Name = "${var.common_tags["Environment"]}-sg"
+  labels = merge(var.common_tags, {
+    name = "${var.common_tags["environment"]}-server"
     }
   )
 }
-
-resource "aws_instance" "server" {
-  ami           = data.aws_ami.ubuntu2204.id
-  instance_type = var.instance_type
-  key_name      = "devops1"
-
-  subnet_id              = aws_subnet.ushakou-subnet.id
-  vpc_security_group_ids = [aws_security_group.sg_ushakou_vpc.id]
-
-  tags = merge(var.common_tags, {
-    Name = "${var.common_tags["Environment"]}-server"
-    }
-  )
-}
-
 
 

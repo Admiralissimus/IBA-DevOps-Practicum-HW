@@ -1,8 +1,12 @@
-az = 2
-
-instance_type = "t2.nano"
+az = "ru-central1-c"
 
 common_tags = {
-  Owner       = "Ushakou"
-  Environment = "pressure"
+  owner       = "ushakou"
+  environment = "pressure"
+}
+
+vm_type = {
+  cores         = 2
+  memory        = 1
+  core_fraction = 5
 }
