@@ -1,19 +1,19 @@
-variable "region" {
-  description = "Region"
+variable "az" {
+  description = "Availability zone"
   type        = string
-  default     = "us-east-1"
+  default     = "ru-central1-a"
 }
 
 variable "change_pass" {
   description = "Change this var for generating new password"
   type        = string
-  default     = "2"
+  default     = "3"
 }
 
-variable "dev_db_ssm" {
+variable "db_key" {
   description = "Name of ssm credential for DB in dev environment"
   type        = string
-  default     = "db_dev_ssm"
+  default     = "db_key"
 }
 
 
