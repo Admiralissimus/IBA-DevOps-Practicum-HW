@@ -119,6 +119,10 @@ resource "random_string" "rds_password" {
 - Store Password in Lockbox using generated password by random_string
 
 ```
+resource "yandex_lockbox_secret" "secret" {
+  name = "lesson14_secret"
+}
+
 resource "yandex_lockbox_secret_version" "db_key_version" {
   secret_id = yandex_lockbox_secret.secret.id
   entries {
