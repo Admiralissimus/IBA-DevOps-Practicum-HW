@@ -164,6 +164,8 @@ resource "yandex_mdb_postgresql_cluster" "pg_db" {
   }
 }
 ```
+![](/2/img/Screenshot_1.jpg)
+
 -
   - Create user
 
@@ -174,6 +176,8 @@ resource "yandex_mdb_postgresql_user" "user1" {
   password   = data.yandex_lockbox_secret_version.db_key_version.entries[0].text_value
 }
 ```
+![](/2/img/Screenshot_2.jpg)
+
 
 -
   -  Create DB and **use generated password**
@@ -185,10 +189,6 @@ resource "yandex_mdb_postgresql_database" "db1" {
   depends_on = [yandex_mdb_postgresql_user.user1]
 }
 ```
-![](/2/img/Screenshot_1.jpg)
-
-![](/2/img/Screenshot_2.jpg)
-
 ![](/2/img/Screenshot_3.jpg)
 
 ![](/2/img/Screenshot_4.jpg)
