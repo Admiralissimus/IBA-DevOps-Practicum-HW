@@ -164,7 +164,7 @@ resource "yandex_mdb_postgresql_cluster" "pg_db" {
   }
 }
 ```
-
+-
   - Create user
 
 ```
@@ -175,7 +175,8 @@ resource "yandex_mdb_postgresql_user" "user1" {
 }
 ```
 
-  - Create DB and **use generated password**
+-
+  -  Create DB and **use generated password**
 ```
 resource "yandex_mdb_postgresql_database" "db1" {
   cluster_id = yandex_mdb_postgresql_cluster.pg_db.id
