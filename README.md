@@ -124,6 +124,7 @@ data "aws_ssm_parameter" "my_rds_password" {
 
 - Now we can use this credentials in different services, for example in DBs.
 
+```
     resource "aws_db_instance" "mysql" {
       identifier           = "dev-rds"
       allocated_storage    = 10
@@ -138,4 +139,4 @@ data "aws_ssm_parameter" "my_rds_password" {
       skip_final_snapshot  = true
       apply_immediately    = true
     }
-
+```
