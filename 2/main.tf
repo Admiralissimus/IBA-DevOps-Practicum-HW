@@ -12,7 +12,7 @@ provider "yandex" {
 }
 
 // Generate Password
-resource "random_string" "rds_password" {
+resource "random_password" "rds_password" {
   length           = 12
   special          = true
   override_special = "!#$&"
@@ -36,7 +36,7 @@ resource "yandex_lockbox_secret_version" "db_key_version" {
   secret_id = yandex_lockbox_secret.secret.id
   entries {
     key        = var.db_key
-    text_value = random_string.rds_password.result
+    text_value = random_password.rds_password.result
   }
 }
 
