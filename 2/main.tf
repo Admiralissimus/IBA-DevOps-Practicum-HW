@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 // Generate Password
-resource "random_string" "rds_password" {
+resource "random_password" "rds_password" {
   length           = 12
   special          = true
   override_special = "!#$&"
@@ -23,7 +23,7 @@ resource "aws_ssm_parameter" "rds_password" {
   name        = var.dev_db_ssm
   description = "Master Password for RDS"
   type        = "SecureString"
-  value       = random_string.rds_password.result
+  value       = random_password.rds_password.result
 }
 
 // Get Password from SSM Parameter Store
