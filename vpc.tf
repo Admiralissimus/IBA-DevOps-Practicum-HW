@@ -2,9 +2,10 @@ data "aws_availability_zones" "available" {}
 
 locals {
   vpc_name      = "ushakou_vpc_module"
-  number_of_azs = 2
+  number_of_azs = 2 // Number of subnets
   vpc_cidr      = "10.0.0.0/16"
-  azs           = slice(data.aws_availability_zones.available.names, 0, local.number_of_azs)
+  // Get a list of the required AZs
+  azs = slice(data.aws_availability_zones.available.names, 0, local.number_of_azs)
 
   tags_vpc_module = {
     owner      = var.owner
@@ -18,8 +19,8 @@ module "vpc" {
   version = "5.1.1"
 
   name = local.vpc_name
-  cidr = local.vpc_cidr
-  azs  = local.azs
+  cidr = local.vpc_cidr // CIDR of created VPC
+  azs  = local.azs      // List of created subnets
 
   manage_default_network_acl    = false
   manage_default_route_table    = false
