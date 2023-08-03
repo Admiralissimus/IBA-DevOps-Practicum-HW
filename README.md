@@ -86,8 +86,6 @@ cidr = local.vpc_cidr // CIDR of created VPC
 azs  = local.azs // List of created subnets
 ```
 
-![](/img/Screenshot_2.jpg)
-
 - Create **own acl, route tables, security groups** instead of using default.
 ```
 manage_default_network_acl    = false
