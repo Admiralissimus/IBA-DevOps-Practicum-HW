@@ -95,6 +95,8 @@ manage_default_security_group = false
 
 ![](/img/Screenshot_4.jpg)
 
+> Each private subnet has the **own route table**. And **one route table** for both public subnets.
+
 ![](/img/Screenshot_5.jpg)
 
 ![](/img/Screenshot_6.jpg)
