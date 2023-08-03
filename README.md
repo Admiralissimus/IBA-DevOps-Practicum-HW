@@ -122,7 +122,7 @@ map_public_ip_on_launch = true
   single_nat_gateway = false
 ```
 
-![](/img/Screenshot_9 .jpg)
+![](/img/Screenshot_9.jpg)
 
 - Resulted code:
 
