@@ -10,3 +10,8 @@ variable "change_pass" {
   default     = "4"
 }
 
+variable "owner" {
+  description = "Owner"
+  type        = string
+  default     = "ushakou"
+}
