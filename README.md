@@ -64,7 +64,7 @@ data "aws_availability_zones" "available" {}
 ```
 locals {
   vpc_name      = "ushakou_vpc_module"
-  number_of_azs = 2 // Number of subnets
+  number_of_azs = 2 // Number of used AZs
   vpc_cidr      = "10.0.0.0/16"
   // Get a list of the required AZs
   azs           = slice(data.aws_availability_zones.available.names, 0, local.number_of_azs)
