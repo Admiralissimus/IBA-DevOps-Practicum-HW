@@ -1,17 +1,23 @@
-variable "region" {
-  description = "Region"
+variable "az_default" {
+  description = "Default availability zone"
   type        = string
-  default     = "us-east-1"
+  default     = "ru-central1-a"
 }
 
-variable "change_pass" {
-  description = "Change this var for generating new password"
+variable "folder_id" {
+  description = "Folder ID"
   type        = string
-  default     = "4"
+  default     = "b1grlgcpgp7enm4j8knb"
 }
 
 variable "owner" {
   description = "Owner"
   type        = string
   default     = "ushakou"
+}
+
+variable "change_pass" {
+  description = "Change password in password generator"
+  type        = string
+  default     = "1"
 }

@@ -1,3 +1,13 @@
+
+# module "vpc" {
+#   source  = "terraform-yacloud-modules/vpc/yandex"
+#   version = "0.8.0"
+
+
+#   # insert the 1 required variable here
+# }
+
+/*
 data "aws_availability_zones" "available" {}
 
 locals {
@@ -35,3 +45,4 @@ module "vpc" {
 
   tags = local.tags_vpc_module
 }
+*/
