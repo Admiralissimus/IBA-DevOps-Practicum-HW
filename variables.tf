@@ -21,3 +21,17 @@ variable "change_pass" {
   type        = string
   default     = "1"
 }
+
+variable "azs" {
+  description = "A list of availability zones names or ids in the region"
+  type        = list(string)
+  default     = ["ru-central1-a", "ru-central1-b"]
+}
+
+variable "subnets" {
+  description = "Subnets map"
+  default = {
+    public  = [["10.1.0.0/24"], ["10.2.0.0/24"]]
+    private = [["10.4.0.0/24"], ["10.5.0.0/24"]]
+  }
+}
