@@ -1,6 +1,6 @@
 [docker]
-ansible1 ansible_host=158.160.101.150
-ansible2 ansible_host=158.160.113.73
+ansible1 ansible_host=51.250.66.59
+ansible2 ansible_host=84.252.128.198
 
 [web]
 ansible3 ansible_host=158.160.101.150
