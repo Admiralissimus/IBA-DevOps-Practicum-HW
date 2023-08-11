@@ -2,7 +2,7 @@
 - name: Copy file and remove it
   hosts: docker
 
-  vars:
+  vars: 
     src: "hosts.txt"
     dest: "/home/{{ ansible_user }}/{{ src }}"
 
@@ -19,9 +19,9 @@
       executable: /bin/bash
     register: output
   
-  - name: File hosts.txt contains
+  - name: Destination file contains
     debug:
-      var: output
+      var: output.stdout_lines
 
   - name: Remove file
     ansible.builtin.file:
