@@ -1,0 +1,16 @@
+---
+- name: Copy file and remove it
+  hosts: docker
+
+  vars:
+    src: "./hosts.txt"
+    dest: "./{{ src }}"
+
+  tasks:
+  
+  - name: Copy file to destination host
+    ansible.builtin.copy:
+      src: {{ src }}
+      dest: {{ dest }}
+
+  - name: Remove file
