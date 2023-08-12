@@ -10,7 +10,7 @@ Each lesson's homework will be created in particular branch.
 ## 3. Write an ansible playbook that will install docker and add the user from the second task to the docker group.
 3.	Написать ansible playbook, который установит докер и добавит в группу докер пользователя из второго задания.
 
-## During making this task I learnt:
+## During making this task I have learnt:
 - blocks:
 - when: 
 - loop:
