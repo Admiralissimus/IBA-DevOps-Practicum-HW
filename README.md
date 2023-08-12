@@ -23,7 +23,7 @@ Each lesson's homework will be created in particular branch.
 - shell:
 - creating user
 
-## 0. Building file structure
+## 0. Building a structure of files.
 First I will create 2 slave hosts with different OS types: **Debian** and **CentOS**.
 
 Structure of files:
