@@ -19,26 +19,20 @@ Structure of files:
 
 **ansible.cfg**:
 
-`
+```
 [defaults]
-
 host_key_checking = false
-
 inventory         = ./hosts.txt
-`
+```
 
 **hosts.txt**:
 
-`
+```
 [docker]
-
 ubuntu1 ansible_host=158.160.99.140
-
 centos1 ansible_host=158.160.114.218
-
 debian1 ansible_host=62.84.124.40
-
-`
+```
 
 **group_vars/all.yml**
 
