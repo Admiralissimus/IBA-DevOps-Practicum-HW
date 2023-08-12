@@ -10,6 +10,18 @@ Each lesson's homework will be created in particular branch.
 ## 3. Write an ansible playbook that will install docker and add the user from the second task to the docker group.
 3.	Написать ansible playbook, который установит докер и добавит в группу докер пользователя из второго задания.
 
+## During making this task I learnt:
+- blocks:
+- when: 
+- loop:
+- set_fact:
+- yum and apt repos
+- ansible variables
+- tags:
+- become_user:
+- shell:
+- creating user
+
 ## 0. Building file structure
 First I will create 2 slave hosts with different OS types: **Debian** and **CentOS**.
 
@@ -116,6 +128,8 @@ docker_user: vasya
 - **Result**
 
 ![](/img/Screenshot_2.jpg)
+
+## 3. Write an ansible playbook that will install docker and add the user from the second task to the docker group.
 
 
 
