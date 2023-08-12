@@ -17,6 +17,7 @@ Each lesson's homework will be created in particular branch.
 - set_fact:
 - yum and apt repos
 - ansible variables
+- group_vars
 - tags:
 - become_user:
 - shell:
