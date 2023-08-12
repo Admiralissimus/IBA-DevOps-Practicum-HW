@@ -76,4 +76,46 @@ ansible_ssh_private_key_file: ./key1.pem
       state: absent
 ```
 
+**Result**
+
+![](/img/Screenshot_3.jpg)
+
 ## 2. Write an ansible playbook that will create a user with a home directory.
+
+- Create var-file **group_vars/all.yml**
+```
+docker_user: vasya
+```
+
+- **play_2.yml**
+
+```
+---
+- name: Creating user with home dir
+  hosts: docker
+
+  tasks:
+
+  - name: Create user 
+    ansible.builtin.user:
+      name: "{{ docker_user }}"
+      state: present
+      create_home: true
+    become: true
+
+  - name: Check creation
+    ansible.builtin.shell: 
+      cmd: "cat /etc/passwd | grep {{ docker_user }}; echo ------;ls /home"
+      executable: /bin/bash
+    register: output
+  
+  - name: Result is...
+    debug:
+      var: output.stdout_lines
+```
+- **Result**
+
+![](/img/Screenshot_2.jpg)
+
+
+
