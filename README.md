@@ -11,7 +11,7 @@ Each lesson's homework will be created in particular branch.
 3.	Написать ansible playbook, который установит докер и добавит в группу докер пользователя из второго задания.
 
 ## During making this task I have learnt:
-- blocks:
+- block:
 - when: 
 - loop:
 - set_fact:
