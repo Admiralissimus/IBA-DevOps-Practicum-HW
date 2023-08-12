@@ -199,7 +199,7 @@ docker_user: vasya
         dest: /etc/yum.repos.d/docer-ce.repo
       become: yes
 
-    - name: Install docker with yum
+    - name: Install docker 
       ansible.builtin.yum:
         state: present    
         update_cache: true
@@ -209,20 +209,7 @@ docker_user: vasya
           - containerd.io
           - docker-buildx-plugin
           - docker-compose-plugin
-      when: mydistribution != "fedora"
-
-    - name: Install docker with dnf
-      ansible.builtin.dnf:
-        state: present    
-        update_cache: true
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-buildx-plugin
-          - docker-compose-plugin
-      when: mydistribution == "fedora"
-
+ 
     when: ansible_os_family == "RedHat"  
 
   - name: Ensure group "docker" exists
@@ -259,6 +246,7 @@ docker_user: vasya
     
     tags:
       - test
+
 ```
 
 
