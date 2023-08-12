@@ -11,7 +11,7 @@ Each lesson's homework will be created in particular branch.
 3.	Написать ansible playbook, который установит докер и добавит в группу докер пользователя из второго задания.
 
 ## 0. Building file structure
-First I will create 2 slave hosts with different OS types: **Debian** and **RedHat**.
+First I will create 2 slave hosts with different OS types: **Debian** and **CentOS**.
 
 Structure of files:
 ![](/img/Screenshot_1.jpg)
