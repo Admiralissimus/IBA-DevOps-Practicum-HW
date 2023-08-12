@@ -14,8 +14,11 @@ Each lesson's homework will be created in particular branch.
 First I will create 2 slave hosts with different OS types: **Debian** and **CentOS**.
 
 Structure of files:
+
 ![](/img/Screenshot_1.jpg)
+
 **ansible.cfg**:
+
 `
 [defaults]
 host_key_checking = false
@@ -23,6 +26,7 @@ inventory         = ./hosts.txt
 `
 
 **hosts.txt**:
+
 `
 [docker]
 ansible1 ansible_host=51.250.66.59
@@ -30,6 +34,7 @@ ansible2 ansible_host=84.252.128.198
 `
 
 **group_vars/all.yml**
+
 `
 ansible_user: admiral
 ansible_ssh_private_key_file: ./key1.pem
