@@ -131,5 +131,133 @@ docker_user: vasya
 
 ## 3. Write an ansible playbook that will install docker and add the user from the second task to the docker group.
 
+**play_3.yml**
+```
+---
+- name: Install docker and add user to docker group
+  hosts: docker
+  become: true
+
+  tasks:
+
+  - name: set mydistribution
+    ansible.builtin.set_fact:
+      mydistribution: "{{ 'rhel' if (ansible_distribution == 'Red Hat Enterprise Linux') else (ansible_distribution | lower) }}"
+
+  - block: #Install docker on debian-based system
+  
+    - name: Install dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+        cache_valid_time: 3600
+      loop:
+        - ca-certificates 
+        - curl
+        - gnupg
+    
+    - name: add GPG key
+      apt_key:
+        url: https://download.docker.com/linux/{{ mydistribution }}/gpg
+        state: present
+   
+    - name: add docker repository to apt
+      apt_repository:
+        repo: deb https://download.docker.com/linux/{{ mydistribution }} {{ ansible_distribution_release }} stable
+        state: present
+
+    - name: Install docker
+      apt:
+        state: present
+        update_cache: yes
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+
+    - name: Install dependecies in Ubuntu to become another user
+      apt:
+        name: "acl"
+        state: present
+
+    when: ansible_os_family == "Debian"
+
+  - block: # RedHat-based systems
+
+    - name: Install dependencies
+      ansible.builtin.yum:
+        name: yum-utils
+        state: present      
+
+    - name: Add Docker repo
+      get_url:
+        url: https://download.docker.com/linux/{{ mydistribution }}/docker-ce.repo
+        dest: /etc/yum.repos.d/docer-ce.repo
+      become: yes
+
+    - name: Install docker with yum
+      ansible.builtin.yum:
+        state: present    
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+      when: mydistribution != "fedora"
+
+    - name: Install docker with dnf
+      ansible.builtin.dnf:
+        state: present    
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+      when: mydistribution == "fedora"
+
+    when: ansible_os_family == "RedHat"  
+
+  - name: Ensure group "docker" exists
+    ansible.builtin.group:
+      name: docker
+      state: present
+
+  - name: Create user 
+    ansible.builtin.user:
+      name: "{{ docker_user }}"
+      groups: docker
+      append: yes
+      state: present
+      create_home: true
+
+  - name: Check docker is active
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  - block: #test
+
+    - name: Test working Docker under user
+      shell:
+        cmd: "docker run --rm hello-world"
+        executable: /bin/bash
+      register: output
+      become_user: "{{ docker_user }}"
+
+    
+    - debug:
+        var: output.stdout_lines
+    
+    tags:
+      - test
+```
 
 
