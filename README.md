@@ -249,4 +249,10 @@ docker_user: vasya
 
 ```
 
+**Result**
 
+![](/img/Screenshot_4.jpg)
+![](/img/Screenshot_5.jpg)
+![](/img/Screenshot_6.jpg)
+![](/img/Screenshot_7.jpg)
+![](/img/Screenshot_8.jpg)
