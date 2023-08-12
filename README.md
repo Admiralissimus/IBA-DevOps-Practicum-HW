@@ -42,6 +42,38 @@ ansible_ssh_private_key_file: ./key1.pem
 ```
 
 ## 1. Write an ansible playbook that will copy a file from a local server to a remote one and delete it.
-
+**Also added** checking creation and output the result.
 **play1.yml**
+```
+---
+- name: Copy file and remove it
+  hosts: docker
 
+  vars: 
+    src: "hosts.txt"
+    dest: "/home/{{ ansible_user }}/{{ src }}"
+
+  tasks:
+  
+  - name: Copy file to destination host
+    ansible.builtin.copy:
+      src: "{{ src }}"
+      dest: "{{ dest }}"
+
+  - name: Read destination file
+    ansible.builtin.shell: 
+      cmd: "cat {{ dest }}"
+      executable: /bin/bash
+    register: output
+  
+  - name: Destination file contains
+    debug:
+      var: output.stdout_lines
+
+  - name: Remove file
+    ansible.builtin.file:
+      path: "{{ dest }}"
+      state: absent
+```
+
+## 2. Write an ansible playbook that will create a user with a home directory.
