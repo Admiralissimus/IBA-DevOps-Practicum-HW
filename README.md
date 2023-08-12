@@ -21,7 +21,9 @@ Structure of files:
 
 `
 [defaults]
+
 host_key_checking = false
+
 inventory         = ./hosts.txt
 `
 
@@ -29,16 +31,21 @@ inventory         = ./hosts.txt
 
 `
 [docker]
-ansible1 ansible_host=51.250.66.59
-ansible2 ansible_host=84.252.128.198
+
+ubuntu1 ansible_host=158.160.99.140
+
+centos1 ansible_host=158.160.114.218
+
+debian1 ansible_host=62.84.124.40
+
 `
 
 **group_vars/all.yml**
 
-`
+```
 ansible_user: admiral
 ansible_ssh_private_key_file: ./key1.pem
-`
+```
 
 ## 1. Write an ansible playbook that will copy a file from a local server to a remote one and delete it.
 
