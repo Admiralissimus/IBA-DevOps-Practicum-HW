@@ -78,4 +78,26 @@ Here we run nginx container:
       - "80:80" 
 ```
 ### The thirdt part (Check working container and terminate ec2) runs on localhost.
+- We will check working by opening url **http://ip**.
+```
+- name: Check that nginx works
+  ansible.builtin.uri:
+    url: "http://{{ ec2.instances[0].public_ip_address }}"
+    return_content: true
+  register: http_output
+ 
+- debug:
+    var: http_output.content
+```
 
+- At the end we will terminate ec2 using its name.
+```
+  - name:  Terminate EC2
+    amazon.aws.ec2_instance:
+      name: "{{ ec2_name }}"
+      state: terminated
+```
+
+### Result:
+![](/img/Screenshot_1.jpg)
+![](/img/Screenshot_2.jpg)
