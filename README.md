@@ -11,7 +11,7 @@ Each lesson's homework will be created in particular branch.
 ## - Remove the ec2
 > Удалить этот инстанс.
 
-- At the beginning we don't know ip of future ec2 instance, thats why we **don't use hosts file**.
+### At the beginning we don't know ip of future ec2 instance, thats why we don't use hosts file.
 Structure of playbook will be:
 ```
 - hosts: localhost
@@ -24,9 +24,11 @@ Structure of playbook will be:
   tasks:
     ... Checking and terminating ec2
 ```
-- First part (creation ec2) **hosts:** will be **localhost**.
+### The first part (creation ec2) runs on localhost.
+
 Name of instance we will declare in file **group_vars/all.yml**.
-During creation ec2 we will use **user_data** to install docker engine and add ubuntu user to group docker:
+
+During creation ec2 we will use variable **user_data** to install docker engine and add ubuntu user to group docker:
 ```
 user_data: |
   #!/bin/bash
@@ -52,6 +54,28 @@ user_data: |
     user_data: "{{ user_data }}"
   register: ec2
 ```
-Here we use state **started** with timeout for waiting installation of docker engine.
-Then we Add EC2 instance to docker_hosts group:
-- 
+Here we've used **state: started** with timeout for waiting installation of docker engine.
+
+Then we declare EC2 instance to **ec2_docker** group:
+```
+- name: Add EC2 instance to docker_hosts group
+  ansible.builtin.add_host:
+    name: "{{ ec2.instances[0].instance_id }}"
+    groups: ec2_docker
+    ansible_host: "{{ ec2.instances[0].public_ip_address }}"
+    ansible_user: "{{ ec2_user }}"
+    ansible_ssh_private_key_file: "{{ ec2_key_priv }}"
+``` 
+### The second part (running nginx container in ec2) runs on "ec2_docker" group
+Here we run nginx container:
+```
+- name: Run Nginx container
+  community.docker.docker_container:
+    name: nginx_container
+    image: "{{ docker_image }}"
+    state: started
+    ports:
+      - "80:80" 
+```
+### The thirdt part (Check working container and terminate ec2) runs on localhost.
+
