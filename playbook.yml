@@ -44,11 +44,8 @@
       ansible_user: "{{ ec2_user }}"
       ansible_ssh_private_key_file: "{{ ec2_key_priv }}"
 
-  - name: Set ec2_ip to global variable
-    ansible.builtin.set_fact: 
-      ec2_ip: "{{ ec2.instances[0].public_ip_address }}"
-
-- hosts: ec2_docker
+- name: Run nginx container in EC2
+  hosts: ec2_docker
 
   vars: 
     docker_image: "nginx:stable-alpine3.17-slim"
@@ -63,12 +60,13 @@
       ports:
         - "80:80" 
 
-- hosts: localhost
+- name: Check working container and terminate EC2 at the end
+  hosts: localhost
   tasks:
 
   - name: Check that nginx works
     ansible.builtin.uri:
-      url: "http://{{ ec2_ip }}"
+      url: "http://{{ ec2.instances[0].public_ip_address }}"
       return_content: true
     register: http_output
   
@@ -79,4 +77,3 @@
     amazon.aws.ec2_instance:
       name: "{{ ec2_name }}"
       state: terminated
-      
