@@ -1,4 +1,0 @@
-[docker]
-ubuntu1 ansible_host=84.201.135.49
-centos1 ansible_host=158.160.111.186
-debian1 ansible_host=158.160.115.225
