@@ -1,1 +1,2 @@
 ec2_name: Ushakou_Ansible
+docker_image: "nginx:stable-alpine3.17-slim"

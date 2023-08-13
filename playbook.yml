@@ -46,10 +46,6 @@
 
 - name: Run nginx container in EC2
   hosts: ec2_docker
-
-  vars: 
-    docker_image: "nginx:stable-alpine3.17-slim"
-
   tasks:
 
   - name: Run Nginx container
@@ -72,7 +68,7 @@
   
   - debug:
       var: http_output.content
-
+  
   - name:  Terminate EC2
     amazon.aws.ec2_instance:
       name: "{{ ec2_name }}"
