@@ -14,6 +14,11 @@ Each lesson's homework will be created in particular branch.
 ## The result code was tested by Ansible-lint
 ![](/img/Screenshot_3.jpg)
 
+### Install supporting AWS in python
+```
+pip install botocore boto3
+```
+
 ### At the beginning we don't know ip of future ec2 instance, thats why we don't use hosts file.
 Structure of playbook will be:
 ```
