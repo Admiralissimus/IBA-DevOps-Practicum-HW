@@ -2,16 +2,16 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/hashicorp/aws" {
-  version     = "5.12.0"
-  constraints = ">= 4.47.0"
+  version     = "5.7.0"
+  constraints = ">= 2.23.0, >= 3.72.0, >= 4.47.0, >= 4.57.0, >= 5.0.0, ~> 5.7.0"
   hashes = [
-    "h1:3Gchmc4oyFvWh3B4tEOQN5UOCd0bfp0P4fEgdpatmlo=",
+    "h1:A7p0npQ+UHlnapVuikOzhmgchAq8agtfZGkYiiEOnp0=",
   ]
 }
 
 provider "registry.terraform.io/hashicorp/cloudinit" {
   version     = "2.3.2"
-  constraints = ">= 2.0.0"
+  constraints = ">= 2.0.0, ~> 2.3.2"
   hashes = [
     "h1:Vl0aixAYTV/bjathX7VArC5TVNkxBCsi3Vq7R4z1uvc=",
   ]
@@ -35,7 +35,7 @@ provider "registry.terraform.io/hashicorp/time" {
 
 provider "registry.terraform.io/hashicorp/tls" {
   version     = "4.0.4"
-  constraints = ">= 3.0.0"
+  constraints = ">= 3.0.0, ~> 4.0.4"
   hashes = [
     "h1:pe9vq86dZZKCm+8k1RhzARwENslF3SXb9ErHbQfgjXU=",
   ]
