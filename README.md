@@ -1,4 +1,39 @@
 # IBA-DevOps-Practicum-HW
 Each lesson's homework will be created in particular branch.
 
+1.	Создать любую страничку на php.
+index.php
+```
+<html>
+<head>
+<title>Page on PHP</title>
+</head>
+<body>
+<h1>Example using PHP</h1>
+<p>This page shows your current IP address and current server time.</p>
+<p>Your IP address: <?php echo $_SERVER['REMOTE_ADDR']; ?></p>
+<p>Current date and time: <?php echo date('d.m.Y H:i:s'); ?></p>
+</body>
+</html>
+```
+2.	Создать рабочий докер имадж для страницы с php.
+Dockerfile
+```
+FROM php:apache
+COPY index.php /var/www/html/
+EXPOSE 80
+
+```
+docker build -t iba-20-hw:v1 .
+docker run --rm -p 8080:80 iba-20-hw:v1 #for local test
+docker tag iba-20-hw:v1 admiralissimus/iba-20-hw:v1
+docker push admiralissimus/iba-20-hw:v1
+
+3.	Развернуть deployment с php в eks.
+terraform init
+terraform plan
+terraform apply
+
+4.	Сделать чтобы страничка с php была доступна извне. Использовать ingress.
+5.	Дать пользователю arn:aws:iam::097084951758:user/alex_b доступ в кластер.
 
