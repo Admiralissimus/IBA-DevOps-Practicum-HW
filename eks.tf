@@ -13,11 +13,13 @@ module "eks" {
     ami_type = "AL2_x86_64"
   }
 
+  aws_auth_users = local.aws_auth_users
+
   eks_managed_node_groups = {
     node_group_one = {
       name = "node-group"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.small"]
 
       min_size     = 2
       max_size     = 2

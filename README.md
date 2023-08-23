@@ -33,7 +33,20 @@ docker push admiralissimus/iba-20-hw:v1
 terraform init
 terraform plan
 terraform apply
+kubectl apply -f deployment.yml
 
 4.	Сделать чтобы страничка с php была доступна извне. Использовать ingress.
-5.	Дать пользователю arn:aws:iam::097084951758:user/alex_b доступ в кластер.
+kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 
+kubectl apply -f deployment.yml 
+deployment.apps/php-deployment created
+
+kubectl apply -f service-php-clusterip.yml 
+service/service-php-clusterip created
+
+kubectl apply -f ingress.yaml 
+ingress.networking.k8s.io/php-ingress created
+
+
+5.	Дать пользователю arn:aws:iam::097084951758:user/alex_b доступ в кластер.
+added to main.tf file

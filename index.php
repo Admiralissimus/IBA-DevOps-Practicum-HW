@@ -7,5 +7,6 @@
 <p>This page shows your current IP address and current server time.</p>
 <p>Your IP address: <?php echo $_SERVER['REMOTE_ADDR']; ?></p>
 <p>Current date and time: <?php echo date('d.m.Y H:i:s'); ?></p>
+<p>Server name: <?php echo $_SERVER['SERVER_NAME']; ?></p>
 </body>
 </html>

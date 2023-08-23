@@ -1,0 +1,13 @@
+# Определяем объект Service, который предоставит доступ к подам с нашим образом php-example
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-php-clusterip # Имя нашего Service
+spec:
+  selector:
+    app: ushakou-php # Метка, по которой будут выбираться поды для этого Service
+  ports:
+  - protocol: TCP # Протокол, который будет использоваться для доступа к подам
+    port: 80 # Порт, который будет открыт на Service
+    targetPort: 80 # Порт, который будет перенаправлен на поды
+  type: ClusterIP # Тип Service, который позволяет получить доступ к подам через порт ноды

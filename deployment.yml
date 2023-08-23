@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  labels:
+    app: ushakou-php
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ushakou-php
+  template:
+    metadata:
+      labels:
+        app: ushakou-php
+    spec:
+      containers:
+      - name: ushakou-php
+        image: admiralissimus/iba-20-hw:v2
+        resources:
+          requests:
+            cpu: 200m
+            memory: 50Mi  
+        ports:
+        - containerPort: 80

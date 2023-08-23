@@ -1,0 +1,17 @@
+# Определяем объект Ingress, который будет маршрутизировать трафик к нашему Service
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: php-ingress # Имя нашего Ingress
+spec:
+  rules:
+  - host: aa8a41c8610254a9db39621c35d06fa6-395189762.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: / # Путь, по которому будет доступна наша страница на PHP
+        pathType: Prefix # Тип пути, который указывает, что все запросы, начинающиеся с этого пути, будут перенаправлены
+        backend:
+          service:
+            name: service-php-clusterip # Имя нашего Service, который обслуживает поды с нашим образом php-example
+            port:
+              number: 80 # Порт нашего Service, который обслуживает поды с нашим образом php-example

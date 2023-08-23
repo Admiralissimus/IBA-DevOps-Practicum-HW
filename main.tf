@@ -24,6 +24,14 @@ data "aws_availability_zones" "available" {}
 locals {
   azs = slice(data.aws_availability_zones.available.names, 0, 2)
 
+  aws_auth_users = [
+    {
+      userarn  = "arn:aws:iam::097084951758:user/alex_b"
+      username = "alex_b"
+      groups   = ["system:masters"]
+    },
+  ]
+
   tags = {
     owner       = var.owner
     environment = "dev"
