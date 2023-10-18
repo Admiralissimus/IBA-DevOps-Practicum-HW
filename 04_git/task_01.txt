@@ -1,0 +1,2 @@
+1. С помощью .gitignore, сделать так, чтобы все файлы *.tbt не попадали в репозиторий.
+https://www.atlassian.com/ru/git/tutorials/saving-changes/gitignore

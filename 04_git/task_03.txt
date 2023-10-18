@@ -1,0 +1,141 @@
+3. Продемонстрировать применение git cherry-pick на собственном 
+репозитории (придумать любой пример).
+
+v3
+
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git add .
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git commit "Task 3 cherry-pick v1 in main"
+error: pathspec 'Task 3 cherry-pick v1 in main' did not match any file(s) known to git
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git commit -m "Task 3 cherry-pick v1 in main"
+[04-git 1de27c3] Task 3 cherry-pick v1 in main
+ 1 file changed, 4 insertions(+)
+ create mode 100644 task_03.txt
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git checkout -b 04-git-cherry-pick
+Switched to a new branch '04-git-cherry-pick'
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git add .
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git commit -m "Task 3 cherry-pick v2 in 04-git-cherry-pick"
+[04-git-cherry-pick 06e1a64] Task 3 cherry-pick v2 in 04-git-cherry-pick
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git add .
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git commit -m "Task 3 cherry-pick v3 in 04-git-cherry-pick"
+[04-git-cherry-pick 0b540cf] Task 3 cherry-pick v3 in 04-git-cherry-pick
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git add .
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git commit -m "Task 3 cherry-pick v4 in 04-git-cherry-pick"
+[04-git-cherry-pick 12936fe] Task 3 cherry-pick v4 in 04-git-cherry-pick
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git che
+checkout      cherry        cherry-pick   
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git checkout 04-git
+Switched to branch '04-git'
+Your branch is ahead of 'origin/04-git' by 1 commit.
+  (use "git push" to publish your local commits)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git log
+commit 1de27c3111148d9efa631c2affa388c60844f0fa (HEAD -> 04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:26:55 2023 +0300
+
+    Task 3 cherry-pick v1 in main
+
+commit 9d6ec76b8f219b80d76e71eff785dcb62aaf9384 (origin/04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:22:40 2023 +0300
+
+    Task 2 finished
+
+commit 204425f4f551382bd716e4493989cbd3e2efe176
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:18:15 2023 +0300
+
+    Task 1 finished
+
+commit 1a726cd7efe256eb8a516dd43d44a8cb7f865966
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:11:07 2023 +0300
+
+    Changed name of tasks file
+
+commit 04d640894863260e246bd47dc05303b818cba79e
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:07:11 2023 +0300
+
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git checkout 04-git-cherry-pick 
+Switched to branch '04-git-cherry-pick'
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git log
+commit 12936fe9e43b24c6655b697d16e2b2d9961fc561 (HEAD -> 04-git-cherry-pick)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:29:08 2023 +0300
+
+    Task 3 cherry-pick v4 in 04-git-cherry-pick
+
+commit 0b540cf14e319dc21178801b800e7081f0f25048
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:28:48 2023 +0300
+
+    Task 3 cherry-pick v3 in 04-git-cherry-pick
+
+commit 06e1a64978ba7ad66b06da0e386e1820c40ba3f6
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:28:28 2023 +0300
+
+    Task 3 cherry-pick v2 in 04-git-cherry-pick
+
+commit 1de27c3111148d9efa631c2affa388c60844f0fa (04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:26:55 2023 +0300
+
+    Task 3 cherry-pick v1 in main
+
+commit 9d6ec76b8f219b80d76e71eff785dcb62aaf9384 (origin/04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:22:40 2023 +0300
+
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git checkout 04-git
+Switched to branch '04-git'
+Your branch is ahead of 'origin/04-git' by 1 commit.
+  (use "git push" to publish your local commits)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git cherry-pick 0b540cf14e319dc21178801b800e7081f0f25048
+Auto-merging task_03.txt
+CONFLICT (content): Merge conflict in task_03.txt
+error: could not apply 0b540cf... Task 3 cherry-pick v3 in 04-git-cherry-pick
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git add .
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git che
+checkout      cherry        cherry-pick   
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git cherry-pick --continue
+[04-git eee38f4] Task 3 cherry-pick v3 in 04-git-cherry-pick
+ Date: Sun Jun 25 00:28:48 2023 +0300
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+alex@Ubuntu-gui:~/iba/IBA-DevOps-Practicum-HW$ git log
+commit eee38f48d0a8bad9296325708d3c28d2785e7a63 (HEAD -> 04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:28:48 2023 +0300
+
+    Task 3 cherry-pick v3 in 04-git-cherry-pick
+
+commit 1de27c3111148d9efa631c2affa388c60844f0fa
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:26:55 2023 +0300
+
+    Task 3 cherry-pick v1 in main
+
+commit 9d6ec76b8f219b80d76e71eff785dcb62aaf9384 (origin/04-git)
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:22:40 2023 +0300
+
+    Task 2 finished
+
+commit 204425f4f551382bd716e4493989cbd3e2efe176
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:18:15 2023 +0300
+
+    Task 1 finished
+
+commit 1a726cd7efe256eb8a516dd43d44a8cb7f865966
+Author: Aliaksandr Ushakou <aushakou@gmail.com>
+Date:   Sun Jun 25 00:11:07 2023 +0300

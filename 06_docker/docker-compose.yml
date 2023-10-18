@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  frontend:
+    image: nginx:stable-alpine-slim
+    container_name: frontend
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./html_src:/usr/share/nginx/html:ro

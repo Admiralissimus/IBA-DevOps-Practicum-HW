@@ -1,0 +1,75 @@
+4. Какая разница между git rebase и git merge ?
+Git rebase и git merge - это две команды, которые позволяют интегрировать изменения из одной ветки в другую. Однако они делают это по-разному¹².
+
+Git merge объединяет две ветки, создавая новый коммит слияния, который содержит изменения из обеих веток. Это сохраняет историю обеих веток, но может приводить к сложным и нелинейным графам коммитов³.
+
+Git rebase переносит одну ветку на другую, переписывая историю первой ветки так, чтобы она начиналась с конца второй ветки. Это убирает лишние коммиты слияния и делает историю проекта линейной и чистой, но может потерять некоторые метаданные (например, автора или дату коммита) или вызвать конфликты⁴.
+
+Пример использования git merge:
+
+```
+a - b - c - d Main
+         \
+          e - f - g Feature
+```
+
+Предположим, мы хотим объединить ветку Feature с веткой Main. Для этого мы сначала переключаемся на ветку Main:
+
+```
+git checkout main
+```
+
+Затем мы выполняем merge с указанием имени ветки Feature:
+
+```
+git merge feature
+```
+
+После этого наша история коммитов будет выглядеть так:
+
+```
+a - b - c - d - h Main
+         \     /
+          e - f - g Feature
+```
+
+Коммит `h` является коммитом слияния, который содержит изменения из обеих веток¹.
+
+Пример использования git rebase:
+
+```
+a - b - c - d Main
+         \
+          e - f - g Feature
+```
+
+Предположим, мы хотим перенести ветку Feature на ветку Main. Для этого мы сначала переключаемся на ветку Feature:
+
+```
+git checkout feature
+```
+
+Затем мы выполняем rebase с указанием имени ветки Main:
+
+```
+git rebase main
+```
+
+После этого наша история коммитов будет выглядеть так:
+
+```
+a - b - c - d Main
+             \
+              e' - f' - g' Feature
+```
+
+Коммиты `e'`, `f'` и `g'` являются копиями коммитов `e`, `f` и `g`, но с другими хэшами и родителями¹.
+
+Выбор между git merge и git rebase зависит от того, какую цель вы преследуете. Если вы хотите сохранить полную историю проекта и избежать потенциальных проблем с переписыванием коммитов, то лучше использовать git merge. Если вы хотите получить простую и понятную историю проекта без лишних коммитов слияния, то лучше использовать git rebase⁵.
+
+Источник: беседа с Bing, 25.06.2023
+(1) Merging vs. Rebasing | Atlassian Git Tutorial. https://www.atlassian.com/git/tutorials/merging-vs-rebasing.
+(2) What's the difference between 'git merge' and 'git rebase'?. https://stackoverflow.com/questions/16666089/whats-the-difference-between-Git-merge-and-git-rebase.
+(3) Git Rebase vs. Git Merge Explained - Reflectoring. https://reflectoring.io/git-rebase-merge/.
+(4) Git Merge vs Rebase | Which Is Better? | Perforce. https://www.perforce.com/blog/vcs/git-rebase-vs-merge-which-better.
+(5) Git - Difference Between Merging and Rebasing - GeeksforGeeks. https://www.geeksforgeeks.org/git-difference-between-merging-and-rebasing/.
