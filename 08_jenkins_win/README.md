@@ -17,7 +17,7 @@
   ` java -jar agent.jar -jnlpUrl http://jenkins-server:8080/computer/windows/jenkins-agent.jnlp -workDir "c:\jenkins" `
 
 
-2. Создать джобу, которая запустит на новом слейве любой bat скрипт.
+## 2. Создать джобу, которая запустит на новом слейве любой bat скрипт.
 
 ```
 <?xml version='1.1' encoding='UTF-8'?>
