@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 ## 1.	Create two different VPCs.
 > Создать два разных VPC.
@@ -11,45 +10,45 @@ Each lesson's homework will be created in particular branch.
 ## 1.	Create two different VPCs.
 - Create **VPC1** and **VPC2**.
   
-  ![](/img/Screenshot_1.jpg)
+  ![](./img/Screenshot_1.jpg)
 
-  ![](/img/Screenshot_2.jpg)
+  ![](./img/Screenshot_2.jpg)
 - Create **two subnets**. Each subnet is in their own VPC.
   
-  ![](/img/Screenshot_3.jpg)
+  ![](./img/Screenshot_3.jpg)
   
-  ![](/img/Screenshot_4.jpg)
+  ![](./img/Screenshot_4.jpg)
 
 ## 2.	Must be connection over ssh betwin this two VPCs.
 - Create **peering connection** and accept request (marked).
 
-  ![](/img/Screenshot_5.jpg)
+  ![](./img/Screenshot_5.jpg)
 - In each VPC in default **route table add route** to neighbour VPC through the peering.
 
-  ![](/img/Screenshot_6.jpg)
+  ![](./img/Screenshot_6.jpg)
   
-  ![](/img/Screenshot_7.jpg)
+  ![](./img/Screenshot_7.jpg)
 
 - Create **security groups**.
 
-  ![](/img/Screenshot_8.jpg)
+  ![](./img/Screenshot_8.jpg)
   
-  ![](/img/Screenshot_9.jpg)
+  ![](./img/Screenshot_9.jpg)
 
 - Create **internet gateway** for one VPC to connect to one instance from internet.
 
-  ![](/img/Screenshot_10.jpg)
+  ![](./img/Screenshot_10.jpg)
 
-  ![](/img/Screenshot_11.jpg)
+  ![](./img/Screenshot_11.jpg)
 - **Add route** to the route table for this VPC.
 
-  ![](/img/Screenshot_14.jpg)
+  ![](./img/Screenshot_14.jpg)
 
 - Create **two instances** in different VPCs.
 
-  ![](/img/Screenshot_12.jpg)
+  ![](./img/Screenshot_12.jpg)
 
-  ![](/img/Screenshot_13.jpg)
+  ![](./img/Screenshot_13.jpg)
 
 ## Check connection
 ### `$ssh ubuntu@44.203.230.28`

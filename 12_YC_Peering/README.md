@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 ## 1.	Create two different VPCs.
 > Создать два разных VPC.
@@ -10,43 +9,43 @@ Each lesson's homework will be created in particular branch.
 
 ## We'll create next shema:
 
-![](/img/shema.jpg)
+![](./img/shema.jpg)
 
 ## 0. Create folders for dev and prod environment. And net-folder for **peering-instance**.
 
-![](/img/Screenshot_1.jpg)
+![](./img/Screenshot_1.jpg)
 
 ## 1.	Create two different VPCs.
 
 - Create VPC **dev** with subnet **dev-subnet** in folder **dev**.
 
-![](/img/Screenshot_2.jpg)
+![](./img/Screenshot_2.jpg)
 
 - Create VPC **prod** with subnet **prod-subnet** in folder **prod**.
 
-![](/img/Screenshot_3.jpg)
+![](./img/Screenshot_3.jpg)
 
 - Create instance **router** with two network interfaces in each subnet with fixed internal IPs. **No need external ip**.
 > By default you can't create more than one network interface. But if you choose image "NAT-instance" from Marketplace - you can do it.
 
-![](/img/Screenshot_4.jpg)
+![](./img/Screenshot_4.jpg)
 
-![](/img/Screenshot_9.jpg)
+![](./img/Screenshot_9.jpg)
 
 - Create **route tables** for each subnet.
 
-![](/img/Screenshot_5.jpg)
+![](./img/Screenshot_5.jpg)
 
-![](/img/Screenshot_6.jpg)
+![](./img/Screenshot_6.jpg)
 
 
 ## 2.	Must be connection over ssh betwin this two VPCs.
 
 - Run instances in each subnet.
 
-![](/img/Screenshot_7.jpg)
+![](./img/Screenshot_7.jpg)
 
-![](/img/Screenshot_8.jpg)
+![](./img/Screenshot_8.jpg)
 
 - Connect to any instance via ssh.
 

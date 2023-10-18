@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 # Do with Ansible
 
@@ -12,7 +11,7 @@ Each lesson's homework will be created in particular branch.
 > Удалить этот инстанс.
 
 ## The result code was tested by Ansible-lint
-![](/img/Screenshot_3.jpg)
+![](./img/Screenshot_3.jpg)
 
 ### Install supporting AWS in python
 ```
@@ -107,8 +106,8 @@ Here we run nginx container:
 ```
 
 ### Result:
-![](/img/Screenshot_1.jpg)
-![](/img/Screenshot_2.jpg)
+![](./img/Screenshot_1.jpg)
+![](./img/Screenshot_2.jpg)
 
 ### playbook.yml
 ```

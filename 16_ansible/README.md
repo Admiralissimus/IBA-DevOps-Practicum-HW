@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 # Do with Ansible
 
@@ -28,7 +27,7 @@ First I will create 2 slave hosts with different OS types: **Debian** and **Cent
 
 Structure of files:
 
-![](/img/Screenshot_1.jpg)
+![](./img/Screenshot_1.jpg)
 
 **ansible.cfg**:
 
@@ -91,7 +90,7 @@ ansible_ssh_private_key_file: ./key1.pem
 
 **Result**
 
-![](/img/Screenshot_3.jpg)
+![](./img/Screenshot_3.jpg)
 
 ## 2. Write an ansible playbook that will create a user with a home directory.
 
@@ -128,7 +127,7 @@ docker_user: vasya
 ```
 - **Result**
 
-![](/img/Screenshot_2.jpg)
+![](./img/Screenshot_2.jpg)
 
 ## 3. Write an ansible playbook that will install docker and add the user from the second task to the docker group.
 
@@ -251,8 +250,8 @@ docker_user: vasya
 
 **Result**
 
-![](/img/Screenshot_4.jpg)
-![](/img/Screenshot_5.jpg)
-![](/img/Screenshot_6.jpg)
-![](/img/Screenshot_7.jpg)
-![](/img/Screenshot_8.jpg)
+![](./img/Screenshot_4.jpg)
+![](./img/Screenshot_5.jpg)
+![](./img/Screenshot_6.jpg)
+![](./img/Screenshot_7.jpg)
+![](./img/Screenshot_8.jpg)

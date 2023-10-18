@@ -1,10 +1,9 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 ## 1.	Create a VPC and a network in it as shown in the figure.
 > Создать VPC и сеть в ней как показано на рисунке. 
 
-![](/img/11_AWS_task.jpg)
+![](./img/11_AWS_task.jpg)
 ## 2.	Create two instances in Public subnet and Private subnet.
 > Создать EC2 ubuntu t2.micro в Public subnet и Private subnet. 
 ## 3.	It should be possible to ssh into instance which is in the Private Subnet from the instance in Public Subnet.
@@ -15,19 +14,19 @@ Each lesson's homework will be created in particular branch.
 ## 1. Create a VPC and a network in it as shown in the figure.
 - Create **VPC**.
   
-  ![](/img/Screenshot_1.jpg)
+  ![](./img/Screenshot_1.jpg)
 - Create **two subnets** in the VPC.
   
-  ![](/img/Screenshot_2.jpg)
+  ![](./img/Screenshot_2.jpg)
   
-  ![](/img/Screenshot_3.jpg)
+  ![](./img/Screenshot_3.jpg)
   
 ## 2.	Create two instances in Public subnet and Private subnet.
 - **Launch two instances** in different subnets.
 
-  ![](/img/Screenshot_4.jpg)
+  ![](./img/Screenshot_4.jpg)
 
-  ![](/img/Screenshot_5.jpg)
+  ![](./img/Screenshot_5.jpg)
 
 ## 3.	It should be possible to ssh into ec2 which is in the Private Subnet from the ec2 Public Subnet.
 ### `$ssh admiral@158.160.99.222`

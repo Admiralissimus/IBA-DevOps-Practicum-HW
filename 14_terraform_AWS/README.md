@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 # Do with terraform.
 ## 1.	Using terraform, deploy two VPCs in two environments using workspaces.
@@ -58,13 +57,13 @@ To create **pressure** environment:
 
 Two additionals environments for tests will be created.
 
-![](/1/img/Screenshot_1.jpg)
+![](./1/img/Screenshot_1.jpg)
 
-![](/1/img/Screenshot_4.jpg)
+![](./1/img/Screenshot_4.jpg)
 
-![](/1/img/Screenshot_3.jpg)
+![](./1/img/Screenshot_3.jpg)
 
-![](/1/img/Screenshot_2.jpg)
+![](./1/img/Screenshot_2.jpg)
 
 Don't forget to remove created environmnts for test.
 

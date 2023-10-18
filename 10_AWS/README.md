@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 ## 1. Set up autoscaling for the t2.micro server, if the CPU load on the server is more than 80%, then another instance should be raised.1. Set up autoscaling for the t2.micro server, if the CPU load on the server is more than 80%, then another instance should be raised.
 > Настроить автоскейлинг для сервера t2.micro, если на сервере нагрузка на CPU больше 80% то должен подниматься еще один инстанс.Настроить автоскейлинг для сервера t2.micro, если на сервере нагрузка на CPU больше 80% то должен подниматься еще один инстанс.

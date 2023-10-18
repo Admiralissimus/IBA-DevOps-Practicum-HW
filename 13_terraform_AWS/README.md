@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 # Do with terraform.
 ## 1.	Create EC2 and Security Group (SG). The EC2 must contains the SG.

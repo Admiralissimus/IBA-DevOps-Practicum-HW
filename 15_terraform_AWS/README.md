@@ -1,5 +1,4 @@
 # IBA-DevOps-Practicum-HW
-Each lesson's homework will be created in particular branch.
 
 
 # Do with terraform.
@@ -45,14 +44,14 @@ module "secret" {
 ```
 > It is a good practiсe to use a specific version of a module in order to avoid problems in the future when changing the version of a module. ***version = "1.1.0"***
 
-![](/img/Screenshot_10.jpg)
+![](./img/Screenshot_10.jpg)
 
 
 ## 2.	Deploy VPC with all networks using the module. Use the module from the Internet, not your own.
 
 We are going to build the next VPC schema:
 
-![](/img/Screenshot_1.jpg)
+![](./img/Screenshot_1.jpg)
 
 - Get information abaou AZs in the region.
 ```
@@ -93,22 +92,22 @@ manage_default_route_table    = false
 manage_default_security_group = false
 ```
 
-![](/img/Screenshot_4.jpg)
+![](./img/Screenshot_4.jpg)
 
 > Each private subnet has the **own route table**. And **one route table** for both public subnets.
 
 
-![](/img/Screenshot_5.jpg)
+![](./img/Screenshot_5.jpg)
 ---
 
-![](/img/Screenshot_6.jpg)
+![](./img/Screenshot_6.jpg)
 ---
 
-![](/img/Screenshot_7.jpg)
+![](./img/Screenshot_7.jpg)
 ---
 - Subnets:
 
-![](/img/Screenshot_3.jpg)
+![](./img/Screenshot_3.jpg)
 
 - Create **public subnets with Internet GW** and declare instances launched into the subnet should be assigned a public IP address
 ```
@@ -116,7 +115,7 @@ public_subnets          = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8,
 map_public_ip_on_launch = true
 ```  
 
-![](/img/Screenshot_8.jpg)
+![](./img/Screenshot_8.jpg)
 
 - Create **private subnets with NAT GW** in each AZ.
 ```
@@ -125,7 +124,7 @@ map_public_ip_on_launch = true
   single_nat_gateway = false
 ```
 
-![](/img/Screenshot_9.jpg)
+![](./img/Screenshot_9.jpg)
 
 - Resulted code:
 
