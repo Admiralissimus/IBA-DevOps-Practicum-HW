@@ -6,26 +6,26 @@ Each lesson's homework will be created in particular branch.
 
 - Create Launch template.
   
-  ![](/img/AWS_ASG_1.jpg)
+  ![](./img/AWS_ASG_1.jpg)
 - with simple user-data.
   
-  ![](/img/AWS_ASG_2.jpg)
+  ![](./img/AWS_ASG_2.jpg)
 - Create auto scaling group
 
-  ![](/img/AWS_ASG_3.jpg)
+  ![](./img/AWS_ASG_3.jpg)
 
 - Configure Automatic scaling (2 variants)
   - **Target tracking scaling**
     
-    ![](/img/AWS_ASG_4.jpg)
+    ![](./img/AWS_ASG_4.jpg)
 
   - **Simple scaling**
     
-    ![](/img/AWS_ASG_6.jpg)
+    ![](./img/AWS_ASG_6.jpg)
 
     Configure CloudWatch
 
-    ![](/img/AWS_ASG_7.jpg)
+    ![](./img/AWS_ASG_7.jpg)
 
   
   
@@ -34,5 +34,5 @@ Each lesson's homework will be created in particular branch.
 
 It's too simple. 
 
-![](/img/AWS_add_volume_8.jpg)
+![](./img/AWS_add_volume_8.jpg)
 
